@@ -14,7 +14,8 @@ public class MainController {
         for (Shape shape: shapes){
             if (shape instanceof Colorable){
                 ((Colorable) shape).howToCoLor();
-                System.out.println(shape+"\n");
+                System.out.println(shape);
+                System.out.println("Diện tích là: "+shape.getArea()+"\n");
             }
 
         }
