@@ -7,7 +7,7 @@ public class CylinderController {
         Cylinder cylinder = new Cylinder(2, "blue", 4);
         System.out.println(cylinder);
 
-//        Cylinder cylinder1=new Cylinder(2,);
-//        System.out.println(cylinder1);
+        Cylinder cylinder1=new Cylinder(2,"red",5);
+        System.out.println(cylinder1);
     }
 }
