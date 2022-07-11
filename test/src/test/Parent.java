@@ -1,5 +1,5 @@
 package test;
 
-  class Parent {
-    private    void method(){}
+  abstract class Parent {
+
 }
