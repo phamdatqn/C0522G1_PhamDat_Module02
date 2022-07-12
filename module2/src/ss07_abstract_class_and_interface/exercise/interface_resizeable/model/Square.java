@@ -2,7 +2,7 @@ package ss07_abstract_class_and_interface.exercise.interface_resizeable.model;
 
 import ss07_abstract_class_and_interface.exercise.interface_colorable.model.Colorable;
 
-public class Square extends Shape implements Resizeable {
+public class Square extends Shape {
     private double side;
     public Square() {
     }

@@ -1,6 +1,6 @@
 package ss07_abstract_class_and_interface.exercise.interface_resizeable.model;
 
-public abstract class Shape {
+public abstract class Shape implements Resizeable {
    private String color= "green";
    private boolean filled= true;
 
