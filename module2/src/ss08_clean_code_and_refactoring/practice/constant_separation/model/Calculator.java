@@ -1,14 +1,14 @@
 package ss08_clean_code_and_refactoring.practice.constant_separation.model;
 
 public class Calculator {
-    public static final char ADDITION = '+';
+
     public static final char SUBTRACTION = '-';
     public static final char MULTIPLICATION = '*';
     public static final char DIVISION = '/';
 
     public static int calculate(int firstOperand , int secondOperand, char operator) {
         switch (operator) {
-            case ADDITION:
+            case '+' :
                 return firstOperand  + secondOperand;
             case SUBTRACTION:
                 return firstOperand  - secondOperand;
