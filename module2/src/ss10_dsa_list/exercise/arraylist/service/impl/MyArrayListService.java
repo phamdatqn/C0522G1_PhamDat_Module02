@@ -105,6 +105,7 @@ public class MyArrayListService<E> implements IMyArrayListService {
 
     /**
      * Method lấy giá trị tại vị trí index
+     *
      * @param index
      * @return
      */
@@ -117,34 +118,25 @@ public class MyArrayListService<E> implements IMyArrayListService {
 
     /**
      * Method remove 1 phần tử
+     *
      * @param index
      * @return
      */
     public E remove(int index) {
-        if(index<0||index>=size){
-            throw new IllegalArgumentException("Error index: "+index);
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Error index: " + index);
         }
-        E element = (E)elements[index];
-        for(int i=index;i<size-1;i++){
-            elements[i]=elements[i+1];
+        E element = (E) elements[index];
+        for (int i = index; i < size - 1; i++) {
+            elements[i] = elements[i + 1];
         }
-        elements[size-1]=null;
+        elements[size - 1] = null;
         size--;
         return element;
     }
 
     @Override
     public void display() {
-
-    }
-
-    @Override
-    public int inputIndex(int number) {
-        return 0;
-    }
-
-    @Override
-    public void deleteStudent(int index) {
 
     }
 }

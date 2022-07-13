@@ -8,11 +8,11 @@ public class StudentListService {
     Scanner sc=new Scanner(System.in);
     static  MyArrayListService<Student> myArrayListService=new MyArrayListService<>();
     static {
-        myArrayListService.add(new Student(1,"dat"));
-        myArrayListService.add(new Student(2,"hoang"));
-        myArrayListService.add(new Student(3,"thu"));
-        myArrayListService.add(new Student(4,"tien"));
-        myArrayListService.add(new Student(5,"manh"));
+        myArrayListService.add(new Student(1,"Đạt Phạm"));
+        myArrayListService.add(new Student(2,"Văn Hoàng"));
+        myArrayListService.add(new Student(3,"Tiến Thu"));
+        myArrayListService.add(new Student(4,"Thành Luân"));
+        myArrayListService.add(new Student(5,"Phát Tài"));
     }
 
     public void display(){
