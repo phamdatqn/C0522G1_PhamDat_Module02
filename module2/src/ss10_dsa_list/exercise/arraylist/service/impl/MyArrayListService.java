@@ -1,10 +1,8 @@
 package ss10_dsa_list.exercise.arraylist.service.impl;
 
-import ss10_dsa_list.exercise.arraylist.model.Student;
-import ss10_dsa_list.practice.simple_list_class.model.MyList;
+import ss10_dsa_list.exercise.arraylist.service.IMyArrayListService;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class MyArrayListService<E> implements IMyArrayListService {
     private int size = 0;
