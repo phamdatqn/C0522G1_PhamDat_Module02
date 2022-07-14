@@ -10,7 +10,7 @@ public class MainController {
 
         int choose;
         do {
-            System.out.println("======= PHẦN MỀM QUẢN LÝ HỌC SINH =======");
+            System.out.println("\n======= PHẦN MỀM QUẢN LÝ HỌC SINH =======");
             System.out.println("1. Thêm học sinh mới vào vị trí cuối");
             System.out.println("2. Thêm học sinh mới vào vị trí bất kỳ :");
             System.out.println("3. Hiển thị danh sách học sinh");

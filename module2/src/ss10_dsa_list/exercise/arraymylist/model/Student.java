@@ -1,23 +1,25 @@
 package ss10_dsa_list.exercise.arraymylist.model;
 
 public class Student {
-    private int iD;
+    private int id;
     private String name;
+    private String address;
 
     public Student() {
     }
 
-    public Student(int iD, String name) {
-        this.iD = iD;
+    public Student(int iD, String name,String address) {
+        this.id = iD;
         this.name = name;
+        this.address=address;
     }
 
-    public int getiD() {
-        return iD;
+    public int getId() {
+        return id;
     }
 
-    public void setiD(int iD) {
-        this.iD = iD;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -30,9 +32,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "iD=" + iD +
-                ", name='" + name + '\'' +
-                '}';
+        return "ID: "+ id +", Họ và tên: "+name+ ", Địa chỉ: "+address;
     }
 }
