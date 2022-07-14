@@ -25,6 +25,6 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return  "ID: "+getId()+", Họ & tên: "+getName()+", Điểm: "+point+"\n";
+        return  "ID: "+getId()+", Họ & tên: "+getName()+", Điểm: "+point;
     }
 }

@@ -11,7 +11,7 @@ public class MainController {
         MainService mainService =new MainService();
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("========== PHẦN MỀM QUẢN LÝ NHÂN SỰ CODEGYM ==========\n" +
+            System.out.println("\n========== PHẦN MỀM QUẢN LÝ NHÂN SỰ CODEGYM ==========\n" +
                     "1. Quản lí học sinh.\n" +
                     "2. Quản lí giảng viên \n" +
                     "3. Xem danh sách giảng viên hoặc học sinh\n" +
