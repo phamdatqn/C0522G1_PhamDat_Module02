@@ -18,8 +18,9 @@ public class Bracket {
     }
 
     private static boolean checkPracket(String str) {
+
         Stack<Character> bStack = new Stack<>();
-        
+
         for (int i = 0; i < str.length(); i++) {
             char temp = str.charAt(i);
 
