@@ -5,21 +5,21 @@ import java.util.Stack;
 
 public class Bracket {
     public static void main(String[] args) {
-        Stack<Character> bStack = new Stack<>();
-
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Nhập chuỗi kiểm tra: ");
         String str = sc.nextLine();
 
-        if (checkPracket(bStack, str)) {
+        if (checkPracket(str)) {
             System.out.println("Well");
         } else {
             System.out.println("Bad");
         }
     }
 
-    private static boolean checkPracket(Stack<Character> bStack, String str) {
+    private static boolean checkPracket(String str) {
+        Stack<Character> bStack = new Stack<>();
+        
         for (int i = 0; i < str.length(); i++) {
             char temp = str.charAt(i);
 
