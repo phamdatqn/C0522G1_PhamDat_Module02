@@ -14,7 +14,7 @@ public class DecimalToBinary {// thập phân sang nhị phân
         int number = sc.nextInt();
         int temp = number;
 
-        while (number != 0) {
+        while (number > 0) {
             stack.push(number % 2);
             number /= 2;
         }
