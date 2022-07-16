@@ -1,7 +1,7 @@
-package ss10_dsa_list.mvclist.controller;
+package exercise_haitutor.mvclist.controller;
 
-import ss10_dsa_list.mvclist.service.IStudentService;
-import ss10_dsa_list.mvclist.service.impl.StudentService;
+import exercise_haitutor.mvclist.service.IStudentService;
+import exercise_haitutor.mvclist.service.impl.StudentService;
 
 import java.util.Scanner;
 

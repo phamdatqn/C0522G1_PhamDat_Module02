@@ -1,4 +1,4 @@
-package ss10_dsa_list.mvclist.model;
+package exercise_haitutor.mvclist.model;
 
 public abstract class Person {
 

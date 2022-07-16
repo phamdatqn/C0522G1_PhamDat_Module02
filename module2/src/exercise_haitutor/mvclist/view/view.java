@@ -1,6 +1,6 @@
-package ss10_dsa_list.mvclist.view;
+package exercise_haitutor.mvclist.view;
 
-import ss10_dsa_list.mvclist.controller.MainController;
+import exercise_haitutor.mvclist.controller.MainController;
 
 public class view {
     public static void main(String[] args) {

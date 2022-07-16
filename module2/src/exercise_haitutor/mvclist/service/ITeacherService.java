@@ -1,4 +1,4 @@
-package ss10_dsa_list.mvclist.service;
+package exercise_haitutor.mvclist.service;
 
 public interface ITeacherService {
 

@@ -1,7 +1,7 @@
-package ss10_dsa_list.mvclist.service.impl;
+package exercise_haitutor.mvclist.service.impl;
 
-import ss10_dsa_list.mvclist.model.Teacher;
-import ss10_dsa_list.mvclist.service.ITeacherService;
+import exercise_haitutor.mvclist.model.Teacher;
+import exercise_haitutor.mvclist.service.ITeacherService;
 
 import java.util.ArrayList;
 import java.util.List;
