@@ -33,8 +33,7 @@ public class XeMayService implements IXeMayService {
         System.out.print("Nhập Công Xuất: ");
         String congXuat = sc.nextLine();
 
-        XeMay xeMay = new XeMay(bienkiemSoat, hangSanXuat, namSanXuat, chuSoHuu, congXuat);
-        return xeMay;
+        return new XeMay(bienkiemSoat, hangSanXuat, namSanXuat, chuSoHuu, congXuat);
     }
 
     @Override
@@ -52,9 +51,9 @@ public class XeMayService implements IXeMayService {
         boolean answer = false;
         for (int i = 0; i < xeMayList.size(); i++) {
             if (xeMayList.get(i).getBienKiemSoat().equals(bienKiemSoat)) {
-                System.out.println("Bạn chắc chắn muốn xóa?\n" +
-                        "1. Có\n" +
-                        "2. Không");
+                System.out.println("Bạn chắc chắn muốn xóa? " +
+                        "\n1. Có" +
+                        "\n2. Không");
 
                 int chooseYesNo = Integer.parseInt(sc.nextLine());
                 if (chooseYesNo == 1) {
@@ -73,8 +72,8 @@ public class XeMayService implements IXeMayService {
     @Override
     public void hienThiXeMay() {
         System.out.println("\nDanh sách xe máy hiện có: ");
-        for (int i = 0; i < xeMayList.size(); i++) {
-            System.out.println(xeMayList.get(i));
+        for (XeMay xeMay : xeMayList) {
+            System.out.println(xeMay);
         }
     }
 
@@ -85,10 +84,10 @@ public class XeMayService implements IXeMayService {
         String bienKiemSoat = sc.nextLine();
 
         boolean timKiem = false;
-        for (int i = 0; i < xeMayList.size(); i++) {
-            if (bienKiemSoat.equals(xeMayList.get(i).getBienKiemSoat())) {
+        for (XeMay xeMay : xeMayList) {
+            if (bienKiemSoat.equals(xeMay.getBienKiemSoat())) {
                 System.out.println("Tìm thấy thông tin của biển kiểm soát: " + bienKiemSoat);
-                System.out.println(xeMayList.get(i).toString());
+                System.out.println(xeMay);
                 timKiem = true;
             }
         }
