@@ -23,6 +23,7 @@ public class CountCharOfString {
                 map.put(key, 1);
             }
         }
+        System.out.println(map);
 
         Set<String> stringSet = map.keySet();
         System.out.println("\nDanh sách từ :");
