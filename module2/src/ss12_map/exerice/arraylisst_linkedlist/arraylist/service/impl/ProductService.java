@@ -67,7 +67,7 @@ public class ProductService implements IProduct {
     public void update() {
         System.out.println("Nhập vào id cần sửa: ");
         int idUpdate = Integer.parseInt(sc.nextLine());
-        ;
+
         Product product = infoProduct();
         int i;
         for (i = 0; i < productArrayList.size(); i++) {
