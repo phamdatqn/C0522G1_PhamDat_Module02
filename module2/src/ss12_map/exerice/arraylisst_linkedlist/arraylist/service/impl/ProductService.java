@@ -68,11 +68,11 @@ public class ProductService implements IProduct {
         System.out.println("Nhập vào id cần sửa: ");
         int idUpdate = Integer.parseInt(sc.nextLine());
 
-        Product product = infoProduct();
+        Product productUpdate = infoProduct();
         int i;
         for (i = 0; i < productArrayList.size(); i++) {
             if (idUpdate == productArrayList.get(i).getId()) {
-                productArrayList.set(i, product);
+                productArrayList.set(i, productUpdate);
                 System.out.println("Update thành công sản phẩm: \n" + productArrayList.get(i));
             }
         }
