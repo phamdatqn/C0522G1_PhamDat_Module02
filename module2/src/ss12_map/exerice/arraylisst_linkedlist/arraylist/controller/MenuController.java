@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MenuController  {
     public static void menuController() {
         ProductService productService = new ProductService();
-        MenuSort menuSort=new MenuSort();
+        MenuSort menuSort = new MenuSort();
 
 
         Scanner scanner = new Scanner(System.in);

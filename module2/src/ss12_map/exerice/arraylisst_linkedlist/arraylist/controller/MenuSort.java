@@ -1,8 +1,5 @@
 package ss12_map.exerice.arraylisst_linkedlist.arraylist.controller;
 
-import exercise_haitutor.car.service.IXeMayService;
-import exercise_haitutor.car.service.impl.XeMayService;
-import ss12_map.exerice.arraylisst_linkedlist.arraylist.model.Product;
 import ss12_map.exerice.arraylisst_linkedlist.arraylist.service.IProduct;
 import ss12_map.exerice.arraylisst_linkedlist.arraylist.service.impl.ProductService;
 
@@ -27,7 +24,7 @@ public class MenuSort {
                     product.sortDecrease();
                     break;
                 case 3:
-                   return;
+                    return;
             }
         } while (true);
     }
