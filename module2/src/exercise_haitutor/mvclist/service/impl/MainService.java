@@ -49,8 +49,10 @@ public class MainService implements IMainService {
             if (idFind == people.get(i).getId()) {
                 System.out.println("Tìm thấy thông tin ID:" + idFind);
                 System.out.println(people.get(i).toString());
+                return;
             }
         }
+        System.out.println("Không tìm thấy thông tin ID: "+idFind);
     }
 
     @Override

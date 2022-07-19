@@ -83,44 +83,43 @@ public class TeacherService implements ITeacherService {
 
     public void findID() {
         System.out.println("Mời bạn nhập id cần tìm:");
-        int idFind=Integer.parseInt(sc.nextLine());
+        int idFind = Integer.parseInt(sc.nextLine());
 
-        boolean isFlag = false;
-        for (int i=0;i<teacherList.size();i++){
-            if (idFind==teacherList.get(i).getId()){
-                System.out.println("tìm thấy thông tin: "+idFind);
+        for (int i = 0; i < teacherList.size(); i++) {
+            if (idFind == teacherList.get(i).getId()) {
+                System.out.println("tìm thấy thông tin: " + idFind);
                 System.out.println(teacherList.get(i).toString());
-                isFlag=true;
+                return;
             }
         }
-        if (!isFlag){
-            System.out.println("Không tìm thấy thông tin: "+idFind);
-        }
+
+        System.out.println("Không tìm thấy thông tin: " + idFind);
     }
+
 
     @Override
     public void findName() {
         System.out.println("Mời bạn nhập tên cần tìm:");
-        String findName=sc.nextLine();
-        ArrayList<Teacher> students=new ArrayList<>();
+        String findName = sc.nextLine();
+        ArrayList<Teacher> students = new ArrayList<>();
 
-        findName=findName.toLowerCase(Locale.ROOT);
-        boolean isFlag =false;
-        for (int i =0;i<teacherList.size();i++){
-            if (teacherList.get(i).getName().toLowerCase(Locale.ROOT).contains(findName)){
+        findName = findName.toLowerCase(Locale.ROOT);
+        boolean isFlag = false;
+        for (int i = 0; i < teacherList.size(); i++) {
+            if (teacherList.get(i).getName().toLowerCase(Locale.ROOT).contains(findName)) {
                 students.add(teacherList.get(i));
-                isFlag=true;
+                isFlag = true;
             }
         }
-        if (isFlag){
-            System.out.println("Danh sách liên quan đến tên : "+findName);
-            for (int i=0;i<students.size();i++){
+        if (isFlag) {
+            System.out.println("Danh sách liên quan đến tên : " + findName);
+            for (int i = 0; i < students.size(); i++) {
                 System.out.println(students.get(i).toString());
             }
         }
 
-        if (!isFlag){
-            System.out.println("Không tìm thấy thông tin liên quan đến tên : "+findName);
+        if (!isFlag) {
+            System.out.println("Không tìm thấy thông tin liên quan đến tên : " + findName);
         }
 
     }
