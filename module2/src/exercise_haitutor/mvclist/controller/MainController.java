@@ -15,7 +15,9 @@ public class MainController {
                     "1. Quản lí học sinh.\n" +
                     "2. Quản lí giảng viên \n" +
                     "3. Xem danh sách giảng viên hoặc học sinh\n" +
-                    "4. Thoát chương trình");
+                    "4. Tìm theo ID\n" +
+                    "5. Tìm theo tên\n" +
+                    "6. Thoát chương trình");
 
             System.out.print("Mời bạn nhập lựa chọn: ");
             int choose = Integer.parseInt(scanner.nextLine());
@@ -32,7 +34,15 @@ public class MainController {
                     mainService.displayList();
                     break;
                 }
-                case 4: {
+                case 4:{
+                    mainService.findID();
+                    break;
+                }
+                case 5:{
+                    mainService.findName();
+                    break;
+                }
+                case 6: {
                     System.out.println("Bạn đã thoát khỏi chương trình!");
                     System.exit(1);
                 }

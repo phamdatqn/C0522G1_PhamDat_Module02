@@ -1,10 +1,7 @@
 package exercise_haitutor.car.service.impl;
 
 import exercise_haitutor.car.model.Xe;
-import exercise_haitutor.car.service.IXeMayService;
-import exercise_haitutor.car.service.IXeOtoService;
 import exercise_haitutor.car.service.IXeService;
-import exercise_haitutor.car.service.IXeTaiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,18 +58,18 @@ public class XeService implements IXeService {
     @Override
     public void timPhuongTien() {
         System.out.println("Nhập biển kiểm soát cần tìm: ");
-        String find=sc.nextLine();
+        String find = sc.nextLine();
 
-        boolean result=false;
+        boolean result = false;
         for (Xe xe : xeList) {
             if (find.equals(xe.getBienKiemSoat())) {
                 System.out.println("Tìm thấy thông tin xe mang biển kiểm soát: " + find);
                 System.out.println(xe);
-                result=true;
+                result = true;
             }
         }
-        if (!result){
-            System.out.println("Không tìm thấy thông tin xe có biển kiểm soát: "+find);
+        if (!result) {
+            System.out.println("Không tìm thấy thông tin xe có biển kiểm soát: " + find);
         }
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentService implements IStudentService {
-    private static List<Student> studentList = new ArrayList<>();
+    public static List<Student> studentList = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     static {
         studentList.add(new Student(1,"Phạm Đạt","2000",8,"C0522G1"));
@@ -17,6 +17,8 @@ public class StudentService implements IStudentService {
         studentList.add(new Student(3,"Phong Trần","1994",2,"C0722G1)"));
         studentList.add(new Student(4,"Hạ Vũ","1997",9,"C0822G1"));
         studentList.add(new Student(5,"Văn Thần","1991",6,"C0922G1"));
+        studentList.add(new Student(6,"Phạm Thành Đạt","2000",8,"C0522G1"));
+        studentList.add(new Student(7,"Nguyễn Tiến Đạt","2000",8,"C0522G1"));
     }
     public static Student infoStudent() {
         System.out.print("Nhập id: ");
@@ -74,6 +76,49 @@ public class StudentService implements IStudentService {
         if (!answer){
             System.out.println("Không tìm thấy id: "+idRemove);
         }
+    }
+
+    @Override
+    public void findID() {
+        System.out.println("Mời bạn nhập id cần tìm:");
+        int idFind=Integer.parseInt(sc.nextLine());
+
+        boolean isFlag = false;
+        for (int i=0;i<studentList.size();i++){
+            if (idFind==studentList.get(i).getId()){
+                System.out.println("tìm thấy thông tin: "+idFind);
+                System.out.println(studentList.get(i).toString());
+                isFlag=true;
+            }
+        }
+        if (!isFlag){
+            System.out.println("Không tìm thấy thông tin: "+idFind);
+        }
+    }
+
+    @Override
+    public void findName() {
+        System.out.println("Mời bạn nhập tên cần tìm:");
+        String findName=sc.nextLine();
+        ArrayList<Student>students=new ArrayList<>();
+        boolean isFlag =false;
+        for (int i =0;i<studentList.size();i++){
+            if (studentList.get(i).getName().contains(findName)){
+              students.add(studentList.get(i));
+                isFlag=true;
+            }
+        }
+        if (isFlag){
+            System.out.println("Danh sách liên quan đến tên : "+findName);
+            for (int i=0;i<students.size();i++){
+                System.out.println(students.get(i).toString());
+            }
+        }
+
+        if (!isFlag){
+            System.out.println("Không tìm thấy thông tin liên quan đến tên : "+findName);
+        }
+
     }
 
 }

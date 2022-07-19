@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class TeacherService implements ITeacherService {
     static Scanner sc = new Scanner(System.in);
-    private static List<Teacher> teacherList = new ArrayList<>();
+    public static List<Teacher> teacherList = new ArrayList<>();
 
     static {
         teacherList.add(new Teacher(1, "Nguyễn Ngọc Nam", "1993", "Nam", "Toán"));
@@ -17,6 +17,8 @@ public class TeacherService implements ITeacherService {
         teacherList.add(new Teacher(3, "Vững Trưng", "1991", "Nam", "Hóa"));
         teacherList.add(new Teacher(4, "Vũ Trượng", "1999", "Nữ", "Sinh"));
         teacherList.add(new Teacher(5, "Công Thành", "1996", "Nam", "Văn"));
+        teacherList.add(new Teacher(5, "Trần Anh Nam", "1999", "Nam", "Hóa"));
+        teacherList.add(new Teacher(5, "Công Thành Nam", "1997", "Nam", "Văn"));
     }
 
     public static Teacher infoTeacher() {
@@ -76,6 +78,48 @@ public class TeacherService implements ITeacherService {
         if (!answer) {
             System.out.println("Không tìm thấy id: " + idRemove);
         }
+    }
+
+    public void findID() {
+        System.out.println("Mời bạn nhập id cần tìm:");
+        int idFind=Integer.parseInt(sc.nextLine());
+
+        boolean isFlag = false;
+        for (int i=0;i<teacherList.size();i++){
+            if (idFind==teacherList.get(i).getId()){
+                System.out.println("tìm thấy thông tin: "+idFind);
+                System.out.println(teacherList.get(i).toString());
+                isFlag=true;
+            }
+        }
+        if (!isFlag){
+            System.out.println("Không tìm thấy thông tin: "+idFind);
+        }
+    }
+
+    @Override
+    public void findName() {
+        System.out.println("Mời bạn nhập tên cần tìm:");
+        String findName=sc.nextLine();
+        ArrayList<Teacher> students=new ArrayList<>();
+        boolean isFlag =false;
+        for (int i =0;i<teacherList.size();i++){
+            if (teacherList.get(i).getName().contains(findName)){
+                students.add(teacherList.get(i));
+                isFlag=true;
+            }
+        }
+        if (isFlag){
+            System.out.println("Danh sách liên quan đến tên : "+findName);
+            for (int i=0;i<students.size();i++){
+                System.out.println(students.get(i).toString());
+            }
+        }
+
+        if (!isFlag){
+            System.out.println("Không tìm thấy thông tin liên quan đến tên : "+findName);
+        }
+
     }
 }
 
