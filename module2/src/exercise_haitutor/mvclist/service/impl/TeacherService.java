@@ -5,6 +5,7 @@ import exercise_haitutor.mvclist.service.ITeacherService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class TeacherService implements ITeacherService {
@@ -102,9 +103,11 @@ public class TeacherService implements ITeacherService {
         System.out.println("Mời bạn nhập tên cần tìm:");
         String findName=sc.nextLine();
         ArrayList<Teacher> students=new ArrayList<>();
+
+        findName=findName.toLowerCase(Locale.ROOT);
         boolean isFlag =false;
         for (int i =0;i<teacherList.size();i++){
-            if (teacherList.get(i).getName().contains(findName)){
+            if (teacherList.get(i).getName().toLowerCase(Locale.ROOT).contains(findName)){
                 students.add(teacherList.get(i));
                 isFlag=true;
             }

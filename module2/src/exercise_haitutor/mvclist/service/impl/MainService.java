@@ -4,6 +4,7 @@ import exercise_haitutor.mvclist.model.Person;
 import exercise_haitutor.mvclist.service.IMainService;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MainService implements IMainService {
@@ -56,23 +57,24 @@ public class MainService implements IMainService {
     public void findName() {
         ArrayList<Person> personArrayList = new ArrayList<>();
         System.out.println("Nhập nhập tên cần tìm: ");
-        String nameFind = sc.nextLine();
+        String findName = sc.nextLine();
 
+        findName=findName.toLowerCase(Locale.ROOT);
         boolean Flag = false;
         for (int i = 0; i < people.size(); i++) {
-            if (people.get(i).getName().contains(nameFind)) {
+            if (people.get(i).getName().toLowerCase(Locale.ROOT).contains(findName)) {
                 personArrayList.add(people.get(i));
                 Flag = true;
             }
         }
         if (Flag) {
-            System.out.println("Tìm thấy thông tin liên quan đến tên: " + nameFind);
+            System.out.println("Tìm thấy thông tin liên quan đến tên: " + findName);
             for (int j = 0; j < personArrayList.size(); j++) {
                 System.out.println(personArrayList.get(j).toString());
             }
         }
         if (!Flag) {
-            System.out.println("Không tìm thấy thông tin liên quan tên: " + nameFind);
+            System.out.println("Không tìm thấy thông tin liên quan tên: " + findName);
         }
     }
 
