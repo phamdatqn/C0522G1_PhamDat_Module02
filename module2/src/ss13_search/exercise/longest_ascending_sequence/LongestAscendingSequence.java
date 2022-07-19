@@ -1,7 +1,6 @@
 package ss13_search.exercise.longest_ascending_sequence;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class LongestAscendingSequence {//Tìm chuỗi tăng dần có độ dài lớn nhất
@@ -19,18 +18,18 @@ public class LongestAscendingSequence {//Tìm chuỗi tăng dần có độ dài
 
             list.add(str.charAt(i));
             for (int j = i + 1; j < str.length(); j++) {
-                if (str.charAt(j) > list.get(list.size()-1)) {
+                if (str.charAt(j) > list.get(list.size() - 1)) {
                     list.add(str.charAt(j));
                 }
             }
-            if (list.size()>max.size()){
+            if (list.size() > max.size()) {
                 max.clear();
                 max.addAll(list);
             }
             list.clear();
         }
 
-        for (Character ch: max){
+        for (Character ch : max) {
             System.out.print(ch);
         }
         System.out.println();

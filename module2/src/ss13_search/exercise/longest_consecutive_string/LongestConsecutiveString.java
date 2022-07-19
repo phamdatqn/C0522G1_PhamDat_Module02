@@ -1,7 +1,6 @@
-package ss13_search.exercise.longest_ascending_sequence;
+package ss13_search.exercise.longest_consecutive_string;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class LongestConsecutiveString {
@@ -14,7 +13,7 @@ public class LongestConsecutiveString {
         String string = input.nextLine();
 
         for (int i = 0; i < string.length(); i++) {
-            if (list.size() > 1 && string.charAt(i) <= list.get(list.size()-1) &&
+            if (list.size() > 1 && string.charAt(i) <= list.get(list.size() - 1) &&
                     list.contains(string.charAt(i))) {
                 list.clear();
             }
