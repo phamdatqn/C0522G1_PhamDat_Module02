@@ -3,7 +3,7 @@ package ss13_search.exercise.longest_consecutive_string;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LongestConsecutiveString {
+public class LongestConsecutiveString {//Tìm chuỗi tăng dần liên tiếp dài nhất
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         ArrayList<Character> max = new ArrayList<>();
