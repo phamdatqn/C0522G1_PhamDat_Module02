@@ -38,8 +38,7 @@ public class StudentService implements IStudentService {
         System.out.print("Nhập vào lớp: ");
         String grade = sc.nextLine();
 
-        Student student = new Student(id, name, dateOfBirth, point, grade);
-        return student;
+        return new Student(id, name, dateOfBirth, point, grade);
     }
 
     @Override
