@@ -12,9 +12,9 @@ public class LongestConsecutiveString {//Tìm chuỗi tăng dần liên tiếp d
         System.out.print("Nhập chuỗi: ");
         String string = input.nextLine();
 
-        for (int i = 0; i < string.length(); i++) {
-            if (list.size() > 1 && string.charAt(i) <= list.get(list.size() - 1) &&
-                    list.contains(string.charAt(i))) {
+        list.add(string.charAt(0));
+        for (int i = 1; i < string.length(); i++) {
+            if (string.charAt(i)<=string.charAt(i-1)){
                 list.clear();
             }
 
@@ -29,7 +29,6 @@ public class LongestConsecutiveString {//Tìm chuỗi tăng dần liên tiếp d
         for (Character ch : max) {
             System.out.print(ch);
         }
-        System.out.println();
     }
 
 }
