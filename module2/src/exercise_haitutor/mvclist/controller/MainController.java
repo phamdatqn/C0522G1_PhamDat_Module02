@@ -8,6 +8,7 @@ public class MainController {
     public static void menuController() {
         StudenController studentController = new StudenController();
         TeacherController teacherController =new TeacherController();
+
         MainService mainService =new MainService();
         Scanner scanner = new Scanner(System.in);
         do {
