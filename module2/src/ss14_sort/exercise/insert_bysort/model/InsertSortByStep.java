@@ -22,8 +22,8 @@ public class InsertSortByStep {
 
                 }
                 arr[j+1]=key;
-                if (!Flag){
-                    System.out.println("Chèn temp vào vị trí củ của "+indexInsert+" ta được: "+Arrays.toString(arr)+"\n");
+                if (Flag){
+                    System.out.println("Chèn "+key+" vào vị trí cũ của "+indexInsert+" ta được: "+Arrays.toString(arr)+"\n");
                 }
             }
 
