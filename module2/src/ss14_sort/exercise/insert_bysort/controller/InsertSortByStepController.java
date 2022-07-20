@@ -22,7 +22,7 @@ public class InsertSortByStepController {
 
         InsertSortByStep.insertSortByStep(arr);
 
-        System.out.println("Mảng sau khi sắp xếp chèn: \n"+Arrays.toString(arr));
+        System.out.println("Mảng sau khi sắp xếp chèn hoàn chỉnh: \n"+Arrays.toString(arr));
 
     }
 }
