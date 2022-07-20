@@ -3,10 +3,7 @@ package exercise_haitutor.mvclist.service.impl;
 import exercise_haitutor.mvclist.model.Student;
 import exercise_haitutor.mvclist.service.IStudentService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class StudentService implements IStudentService {
     public static List<Student> studentList = new ArrayList<>();
@@ -122,6 +119,25 @@ public class StudentService implements IStudentService {
             System.out.println("Không tìm thấy thông tin liên quan đến tên : " + findName);
         }
 
+    }
+
+    @Override
+    public void bubbleSortName() {
+        boolean needNextPass = true;
+        for (int i=1;i<studentList.size() && needNextPass;i++){
+
+            needNextPass=false;
+            for (int j=0;j<studentList.size()-i;j++){
+                if (studentList.get(j).getName().compareTo(studentList.get(j+1).getName())>0){
+                    Collections.swap(studentList,j,j+1);
+                    needNextPass=true;
+                }
+            }
+        }
+        System.out.println("Danh sách sau sắp xếp: ");
+        for (int i=0;i<studentList.size();i++){
+            System.out.println(studentList.get(i).toString());
+        }
     }
 
 }

@@ -18,7 +18,8 @@ public class MainController {
                     "3. Xem danh sách giảng viên hoặc học sinh\n" +
                     "4. Tìm theo ID\n" +
                     "5. Tìm theo tên\n" +
-                    "6. Thoát chương trình");
+                    "6. Sắp xếp theo tên\n" +
+                    "7. Thoát chương trình");
 
             System.out.print("Mời bạn nhập lựa chọn: ");
             int choose = Integer.parseInt(scanner.nextLine());
@@ -43,7 +44,11 @@ public class MainController {
                     mainService.findName();
                     break;
                 }
-                case 6: {
+                case 6:{
+                    mainService.insertSortName();
+                    break;
+                }
+                case 7: {
                     System.out.println("Bạn đã thoát khỏi chương trình!");
                     System.exit(1);
                 }

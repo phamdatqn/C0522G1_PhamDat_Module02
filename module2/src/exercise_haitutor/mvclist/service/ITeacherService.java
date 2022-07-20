@@ -11,4 +11,6 @@ public interface ITeacherService {
     void findID();
 
     void findName();
+
+    void bubbleSortName();
 }

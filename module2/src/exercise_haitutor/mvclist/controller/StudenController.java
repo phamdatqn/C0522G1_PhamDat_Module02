@@ -17,7 +17,8 @@ public class StudenController {
                     "3. Xem danh sách học sinh \n" +
                     "4. Tìm học sinh theo ID \n" +
                     "5. Tìm học sinh theo tên \n" +
-                    "6. Quay về menu chính.\n Mời chọn: ");
+                    "6. Sắp xếp theo tên \n" +
+                    "7. Quay về menu chính.\n Mời chọn: ");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -36,6 +37,9 @@ public class StudenController {
                     iStudentService.findName();
                     break;
                 case 6:
+                    iStudentService.bubbleSortName();
+                    break;
+                case 7:
                     return;
             }
         } while (true);

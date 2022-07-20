@@ -3,10 +3,7 @@ package exercise_haitutor.mvclist.service.impl;
 import exercise_haitutor.mvclist.model.Teacher;
 import exercise_haitutor.mvclist.service.ITeacherService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class TeacherService implements ITeacherService {
     static Scanner sc = new Scanner(System.in);
@@ -18,8 +15,8 @@ public class TeacherService implements ITeacherService {
         teacherList.add(new Teacher(3, "Vững Trưng", "1991", "Nam", "Hóa"));
         teacherList.add(new Teacher(4, "Vũ Trượng", "1999", "Nữ", "Sinh"));
         teacherList.add(new Teacher(5, "Công Thành", "1996", "Nam", "Văn"));
-        teacherList.add(new Teacher(5, "Trần Anh Nam", "1999", "Nam", "Hóa"));
-        teacherList.add(new Teacher(5, "Công Thành Nam", "1997", "Nam", "Văn"));
+        teacherList.add(new Teacher(6, "Trần Anh Nam", "1999", "Nam", "Hóa"));
+        teacherList.add(new Teacher(7, "Công Thành Nam", "1997", "Nam", "Văn"));
     }
 
     public static Teacher infoTeacher() {
@@ -123,6 +120,26 @@ public class TeacherService implements ITeacherService {
         }
 
     }
+
+    @Override
+    public void bubbleSortName() {
+        boolean needNextPass = true;
+        for (int i = 1; i < teacherList.size() && needNextPass; i++) {
+
+            needNextPass = false;
+            for (int j = 0; j < teacherList.size() - i; j++) {
+                if (teacherList.get(j).getName().compareTo(teacherList.get(j + 1).getName()) > 0) {
+                    Collections.swap(teacherList, j, j + 1);
+                    needNextPass = true;
+                }
+            }
+        }
+        System.out.println("Danh sách sau sắp xếp: ");
+        for (int i = 0; i < teacherList.size(); i++) {
+            System.out.println(teacherList.get(i).toString());
+        }
+    }
 }
+
 
 

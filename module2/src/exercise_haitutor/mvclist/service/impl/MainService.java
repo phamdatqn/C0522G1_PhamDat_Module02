@@ -80,6 +80,24 @@ public class MainService implements IMainService {
         }
     }
 
+    @Override
+    public void insertSortName() {
+       for (int i=1;i<people.size();i++){
+           Person key = people.get(i);
+           int j;
+           for (j=i-1;j>=0;j--){
+               if (people.get(j).getName().compareTo(key.getName())>0){
+                   people.set(j+1,people.get(j));
+               }else {
+                   break;
+               }
+           }
+           people.set(j+1,key);
+       }
+        for (int i=0;i<people.size();i++){
+            System.out.println(people.get(i).toString());
+        }
+    }
 }
 
 

@@ -4,4 +4,5 @@ public interface IMainService {
      void displayList();
      void findID();
      void findName();
+     void insertSortName();
 }

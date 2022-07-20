@@ -10,4 +10,6 @@ void addStudent();
     void findID();
 
     void findName();
+
+    void bubbleSortName();
 }
