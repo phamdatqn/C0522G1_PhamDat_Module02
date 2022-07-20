@@ -1,4 +1,4 @@
-package ss12_map.exerice.arraylisst_linkedlist.arraylist.model;
+package ss12_map.exercice.arraylisst_linkedlist.arraylist.model;
 
 
 public class Product implements Comparable<Product> {

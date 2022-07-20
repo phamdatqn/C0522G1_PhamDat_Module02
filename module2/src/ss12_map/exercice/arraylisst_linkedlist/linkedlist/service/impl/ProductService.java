@@ -1,7 +1,7 @@
-package ss12_map.exerice.arraylisst_linkedlist.linkedlist.service.impl;
+package ss12_map.exercice.arraylisst_linkedlist.linkedlist.service.impl;
 
-import ss12_map.exerice.arraylisst_linkedlist.linkedlist.model.Product;
-import ss12_map.exerice.arraylisst_linkedlist.linkedlist.service.IProduct;
+import ss12_map.exercice.arraylisst_linkedlist.linkedlist.model.Product;
+import ss12_map.exercice.arraylisst_linkedlist.linkedlist.service.IProduct;
 
 import java.util.*;
 

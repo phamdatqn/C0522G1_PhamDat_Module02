@@ -1,6 +1,6 @@
-package ss12_map.exerice.arraylisst_linkedlist.linkedlist.controller;
+package ss12_map.exercice.arraylisst_linkedlist.linkedlist.controller;
 
-import ss12_map.exerice.arraylisst_linkedlist.linkedlist.service.impl.ProductService;
+import ss12_map.exercice.arraylisst_linkedlist.linkedlist.service.impl.ProductService;
 
 import java.util.Scanner;
 
