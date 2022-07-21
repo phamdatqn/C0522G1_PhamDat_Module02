@@ -40,8 +40,9 @@ public class Triangle {
 
     @Override
     public String toString() {
-        return "Tam giác có: \ncạnh a:" + a
-                + "\ncạnh b: " + b
-                + "\ncạnh c:" + c;
+        return  "cạnh a = " + a
+                + "\ncạnh b = " + b
+                + "\ncạnh c = " + c
+                +"\nLà ba cạnh của tam giác!";
     }
 }

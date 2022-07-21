@@ -28,7 +28,7 @@ public class StudenController {
                             iStudentService.addStudent();
                             break;
                         } catch (DuplicateIDException e) {
-                            System.out.println(e.getMessage());
+                            System.out.println("ID học sinh này đã tồn tại, mời nhập lại!");
                         }
 
                     }

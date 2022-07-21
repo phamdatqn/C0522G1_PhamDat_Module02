@@ -11,7 +11,6 @@ public class MainController {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-
             try {
                 System.out.print("Nhập cạnh a: ");
                 int a = Integer.parseInt(sc.nextLine());
@@ -22,7 +21,7 @@ public class MainController {
                 System.out.print("Nhập cạnh c: ");
                 int c = Integer.parseInt(sc.nextLine());
 
-                triangle.checkTrilangle(a, b, c);
+                System.out.println(triangle.checkTrilangle(a, b, c));
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Không được nhập chữ, mời nhập lại !");

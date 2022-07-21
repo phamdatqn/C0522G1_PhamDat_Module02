@@ -12,23 +12,25 @@ public class TriangleService implements ITriangleService {
 
 
     @Override
-    public void checkTrilangle(int a, int b, int c) throws IllegalTriangleException {
-        if (a > 0 && b > 0 && c > 0
+    public Triangle checkTrilangle(int a, int b, int c) throws IllegalTriangleException {
+        if (a < 0 || b < 0 || c < 0) {
+            throw new IllegalTriangleException("Không được nhập số âm");
+        }
+        if (!(a > 0 && b > 0 && c > 0
                 && a + b > c
                 && a + c > b
-                && b + c > a) {
-            System.out.println("là ba cạnh của tam giác");
-        } else {
-            System.out.println("Không là ba cạnh của tam giác");
-            if (a < 0 || b < 0 || c < 0) {
-                throw new IllegalTriangleException("không được nhập số âm!");
-            }
-
+                && b + c > a)) {
+            throw new IllegalTriangleException("Không là ba cạnh của tam giác");
         }
+
+        return new Triangle(a, b, c);
     }
 
-
 }
+
+
+
+
 
 
 

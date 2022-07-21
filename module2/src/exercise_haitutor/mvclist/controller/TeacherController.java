@@ -28,7 +28,7 @@ public class TeacherController {
                             iTeacherService.addTeacher();
                             break;
                         } catch (DuplicateIDException e) {
-                            System.out.println(e.getMessage());
+                            System.out.println("ID Teacher này đã tồn tại, mời nhập lại!");
                         }
                     }
                     break;

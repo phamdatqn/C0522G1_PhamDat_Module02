@@ -1,7 +1,8 @@
 package ss15_debug.exercise.service;
 
 import ss15_debug.exercise.exception.IllegalTriangleException;
+import ss15_debug.exercise.model.Triangle;
 
 public interface ITriangleService {
-    void checkTrilangle(int a, int b, int c) throws IllegalTriangleException;
+    Triangle checkTrilangle(int a, int b, int c) throws IllegalTriangleException;
 }
