@@ -1,5 +1,6 @@
 package exercise_haitutor.mvclist.service.impl;
 
+import exercise_haitutor.mvclist.exception.DuplicateIDException;
 import exercise_haitutor.mvclist.model.Teacher;
 import exercise_haitutor.mvclist.service.ITeacherService;
 
@@ -20,8 +21,17 @@ public class TeacherService implements ITeacherService {
     }
 
     public static Teacher infoTeacher() {
-        System.out.print("Nhập id: ");
-        int id = Integer.parseInt(sc.nextLine());
+        int id;
+        while (true) {
+            try {
+                System.out.print("Nhập id: ");
+                id = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Nhập sai, không được nhập ký tự chữ !");
+            }
+        }
+
 
         System.out.print("Nhập name: ");
         String name = sc.nextLine();
@@ -40,8 +50,13 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
-    public void addTeacher() {
+    public void addTeacher() throws DuplicateIDException {
         Teacher teacher = infoTeacher();
+        for (int i = 0; i < teacherList.size(); i++) {
+            if (teacher.getId() == teacherList.get(i).getId()) {
+                throw new DuplicateIDException("Id đã tồn tại");
+            }
+        }
         teacherList.add(teacher);
         System.out.println("Thêm giảng viên thành công!");
     }

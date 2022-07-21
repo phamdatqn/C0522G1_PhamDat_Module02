@@ -1,7 +1,9 @@
 package exercise_haitutor.mvclist.service;
 
+import exercise_haitutor.mvclist.exception.DuplicateIDException;
+
 public interface IStudentService {
-void addStudent();
+    void addStudent() throws DuplicateIDException;
 
     void displayAllStudent();
 

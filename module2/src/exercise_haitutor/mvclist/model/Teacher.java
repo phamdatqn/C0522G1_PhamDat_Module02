@@ -31,6 +31,6 @@ public class Teacher extends Person {
 
     @Override
     public String toString() {
-        return "Id: "+getId()+", Họ và tên: "+getName()+", Giới tính: "+sex+", Chuyên môn: "+specialize;
+        return "Id: " + getId() + ", Họ và tên: " + getName() + ", Giới tính: " + sex + ", Chuyên môn: " + specialize;
     }
 }

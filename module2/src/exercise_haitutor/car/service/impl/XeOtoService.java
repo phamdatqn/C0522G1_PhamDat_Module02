@@ -2,6 +2,7 @@ package exercise_haitutor.car.service.impl;
 
 import exercise_haitutor.car.model.XeOto;
 import exercise_haitutor.car.service.IXeOtoService;
+import exercise_haitutor.mvclist.exception.DuplicateIDException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,33 +21,46 @@ public class XeOtoService implements IXeOtoService {
     }
 
     public static XeOto infoXeOto() {
-        System.out.print("Nhập biển kiểm soát: ");
+        System.out.println("Nhập biển kiểm soát: ");
         String bienkiemSoat = sc.nextLine();
 
-        System.out.print("Nhập tên hãng sản xuất: ");
+        System.out.println("Nhập tên hãng sản xuất: ");
         String hangSanXuat = sc.nextLine();
 
-        System.out.print("Nhập năm sản xuất: ");
+        System.out.println("Nhập năm sản xuất: ");
         String namSanXuat = sc.nextLine();
 
-        System.out.print("Nhập chủ sở hữu: ");
+        System.out.println("Nhập chủ sở hữu: ");
         String chuSoHuu = sc.nextLine();
 
-        System.out.print("Nhập số chổ ngồi: ");
+        System.out.println("Nhập số chổ ngồi: ");
         int soChoNgoi = Integer.parseInt(sc.nextLine());
 
-        System.out.print("Nhập kiểu xe: ");
+        System.out.println("Nhập kiểu xe: ");
         String kieuXe = sc.nextLine();
 
-        XeOto xeOto = new XeOto(bienkiemSoat, hangSanXuat, namSanXuat, chuSoHuu, soChoNgoi, kieuXe);
-        return xeOto;
+        return new XeOto(bienkiemSoat, hangSanXuat, namSanXuat, chuSoHuu, soChoNgoi, kieuXe);
     }
 
     @Override
     public void themXeOto() {
-        XeOto xeOto = infoXeOto();
-        xeOtoList.add(xeOto);
-        System.out.println("Thêm mới thành công! ");
+        XeOto xeOto;
+        while (true) {
+            try {
+                xeOto = infoXeOto();
+                for (XeOto oto : xeOtoList) {
+                    if (xeOto.getBienKiemSoat().equals(oto.getBienKiemSoat())) {
+                        throw new DuplicateIDException("Trùng biển số xe");
+                    }
+                }
+                xeOtoList.add(xeOto);
+                System.out.println("Thêm mới thành công! ");
+                break;
+            } catch (DuplicateIDException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
     }
 
     @Override
@@ -59,7 +73,7 @@ public class XeOtoService implements IXeOtoService {
             if (xeOtoList.get(i).getBienKiemSoat().equals(bienKiemSoat)) {
                 System.out.println("Bạn chắc chắn muốn xóa?\n" +
                         "1. Có\n" +
-                        "2. Không");
+                        "\n2. Không");
 
                 int chooseYesNo = Integer.parseInt(sc.nextLine());
                 if (chooseYesNo == 1) {
@@ -78,8 +92,8 @@ public class XeOtoService implements IXeOtoService {
     @Override
     public void hienThiXeOto() {
         System.out.println("\nDanh sách xe ôtô hiện có: ");
-        for (int i = 0; i < xeOtoList.size(); i++) {
-            System.out.println(xeOtoList.get(i));
+        for (XeOto xeOto : xeOtoList) {
+            System.out.println(xeOto);
         }
     }
 
@@ -90,10 +104,10 @@ public class XeOtoService implements IXeOtoService {
         String bienKiemSoat = sc.nextLine();
 
         boolean timKiem = false;
-        for (int i = 0; i < xeOtoList.size(); i++) {
-            if (bienKiemSoat.equals(xeOtoList.get(i).getBienKiemSoat())) {
+        for (XeOto xeOto : xeOtoList) {
+            if (bienKiemSoat.equals(xeOto.getBienKiemSoat())) {
                 System.out.println("Tìm thấy thông tin của biển kiểm soát: " + bienKiemSoat);
-                System.out.println(xeOtoList.get(i).toString());
+                System.out.println(xeOto);
                 timKiem = true;
             }
         }

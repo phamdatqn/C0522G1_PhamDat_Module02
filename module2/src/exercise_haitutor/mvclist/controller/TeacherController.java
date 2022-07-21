@@ -1,5 +1,6 @@
 package exercise_haitutor.mvclist.controller;
 
+import exercise_haitutor.mvclist.exception.DuplicateIDException;
 import exercise_haitutor.mvclist.service.ITeacherService;
 import exercise_haitutor.mvclist.service.impl.TeacherService;
 
@@ -22,7 +23,14 @@ public class TeacherController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
-                    iTeacherService.addTeacher();
+                    while (true) {
+                        try {
+                            iTeacherService.addTeacher();
+                            break;
+                        } catch (DuplicateIDException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
                     break;
                 case 2:
                     iTeacherService.removeTeacher();

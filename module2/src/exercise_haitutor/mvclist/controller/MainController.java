@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class MainController {
     public static void menuController() {
         StudenController studentController = new StudenController();
-        TeacherController teacherController =new TeacherController();
+        TeacherController teacherController = new TeacherController();
 
-        MainService mainService =new MainService();
+        MainService mainService = new MainService();
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("\n========== PHẦN MỀM QUẢN LÝ NHÂN SỰ CODEGYM ==========\n" +
@@ -32,19 +32,19 @@ public class MainController {
                     teacherController.menuTeacher();
                     break;
                 }
-                case 3:{
+                case 3: {
                     mainService.displayList();
                     break;
                 }
-                case 4:{
+                case 4: {
                     mainService.findID();
                     break;
                 }
-                case 5:{
+                case 5: {
                     mainService.findName();
                     break;
                 }
-                case 6:{
+                case 6: {
                     mainService.insertSortName();
                     break;
                 }

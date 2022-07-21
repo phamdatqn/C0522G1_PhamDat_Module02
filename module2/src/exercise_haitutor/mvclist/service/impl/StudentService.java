@@ -1,5 +1,6 @@
 package exercise_haitutor.mvclist.service.impl;
 
+import exercise_haitutor.mvclist.exception.DuplicateIDException;
 import exercise_haitutor.mvclist.model.Student;
 import exercise_haitutor.mvclist.service.IStudentService;
 
@@ -20,8 +21,8 @@ public class StudentService implements IStudentService {
     }
 
     public static Student infoStudent() {
-        System.out.print("Nhập id: ");
-        int id = Integer.parseInt(sc.nextLine());
+        int id;
+        double point;
 
         System.out.print("Nhập name: ");
         String name = sc.nextLine();
@@ -29,8 +30,20 @@ public class StudentService implements IStudentService {
         System.out.print("Nhập ngày sinh: ");
         String dateOfBirth = sc.nextLine();
 
-        System.out.print("Nhập điểm: ");
-        double point = Double.parseDouble(sc.nextLine());
+        while (true) {
+            try {
+                System.out.print("Nhập id: ");
+                id = Integer.parseInt(sc.nextLine());
+
+                System.out.print("Nhập điểm: ");
+                point = Double.parseDouble(sc.nextLine());
+                break;
+
+            } catch (NumberFormatException e) {
+                System.out.println("Không được nhập ký tự chữ, phải nhập số!.");
+            }
+        }
+
 
         System.out.print("Nhập vào lớp: ");
         String grade = sc.nextLine();
@@ -38,11 +51,18 @@ public class StudentService implements IStudentService {
         return new Student(id, name, dateOfBirth, point, grade);
     }
 
+
     @Override
-    public void addStudent() {
+    public void addStudent() throws DuplicateIDException {
         Student student = infoStudent();
+        for (Student value : studentList) {
+            if (value.getId() == student.getId()) {
+                throw new DuplicateIDException("Id đã tồn tại!");
+            }
+        }
         studentList.add(student);
         System.out.println("Thêm mới thành công!\n");
+
     }
 
     @Override
@@ -124,18 +144,18 @@ public class StudentService implements IStudentService {
     @Override
     public void bubbleSortName() {
         boolean needNextPass = true;
-        for (int i=1;i<studentList.size() && needNextPass;i++){
+        for (int i = 1; i < studentList.size() && needNextPass; i++) {
 
-            needNextPass=false;
-            for (int j=0;j<studentList.size()-i;j++){
-                if (studentList.get(j).getName().compareTo(studentList.get(j+1).getName())>0){
-                    Collections.swap(studentList,j,j+1);
-                    needNextPass=true;
+            needNextPass = false;
+            for (int j = 0; j < studentList.size() - i; j++) {
+                if (studentList.get(j).getName().compareTo(studentList.get(j + 1).getName()) > 0) {
+                    Collections.swap(studentList, j, j + 1);
+                    needNextPass = true;
                 }
             }
         }
         System.out.println("Danh sách sau sắp xếp: ");
-        for (int i=0;i<studentList.size();i++){
+        for (int i = 0; i < studentList.size(); i++) {
             System.out.println(studentList.get(i).toString());
         }
     }
