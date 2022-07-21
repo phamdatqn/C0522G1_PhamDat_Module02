@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Palindrome {
+public class Palindrome {// xuôi ngược đều giống nhau
     public static void main(String[] args) {
         Stack<String> stack = new Stack<>();
 

@@ -3,7 +3,7 @@ package ss13_search.exercise.recursive;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class Main {//recursive: đệ quy
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {

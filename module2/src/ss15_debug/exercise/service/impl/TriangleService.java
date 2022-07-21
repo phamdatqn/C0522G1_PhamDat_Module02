@@ -1,0 +1,34 @@
+package ss15_debug.exercise.service.impl;
+
+import ss15_debug.exercise.exception.IllegalTriangleException;
+import ss15_debug.exercise.model.Triangle;
+import ss15_debug.exercise.service.ITriangleService;
+
+import java.util.Scanner;
+
+public class TriangleService implements ITriangleService {
+    Triangle triangle = new Triangle();
+    static Scanner sc = new Scanner(System.in);
+
+
+    @Override
+    public void checkTrilangle(int a, int b, int c) throws IllegalTriangleException {
+        if (a > 0 && b > 0 && c > 0
+                && a + b > c
+                && a + c > b
+                && b + c > a) {
+            System.out.println("là ba cạnh của tam giác");
+        } else {
+            System.out.println("Không là ba cạnh của tam giác");
+            if (a < 0 || b < 0 || c < 0) {
+                throw new IllegalTriangleException("không được nhập số âm!");
+            }
+
+        }
+    }
+
+
+}
+
+
+
