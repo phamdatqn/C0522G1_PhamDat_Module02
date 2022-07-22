@@ -131,7 +131,7 @@ public class StudentService implements IStudentService {
         if (isFlag) {
             System.out.println("Danh sách liên quan đến tên : " + findName);
             for (int i = 0; i < students.size(); i++) {
-                System.out.println(students.get(i).toString());
+                System.out.println(students.get(i));
             }
         }
 
@@ -155,9 +155,7 @@ public class StudentService implements IStudentService {
             }
         }
         System.out.println("Danh sách sau sắp xếp: ");
-        for (int i = 0; i < studentList.size(); i++) {
-            System.out.println(studentList.get(i).toString());
-        }
+       displayAllStudent();
     }
 
 }
