@@ -1,0 +1,7 @@
+7,Đỗ Thị Lành,2006,Nữ,5.0,C02
+1,Chơi Xong Dông,2004,Nam,9.0,C02
+2,Nguyễn Viết Thắng,2005,Nam,10.0,C01
+3,Trương Thành Tiến,1993,Nam,9.0,C04
+5,Nguyễn Tiễn,2005,Nam,6.0,C06
+4,Trần Thu Thủy,2005,Nam,7.0,C03
+6,Trương Thị Tuyết Mai,2004,Nữ,8.5,C06

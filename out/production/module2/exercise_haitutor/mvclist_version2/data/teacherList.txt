@@ -1,0 +1,7 @@
+7,Duyên Thị Hợp,1997,Nữ,Thể Dục
+1,Nguyễn Ngọc Nam,1991,Nam,Toán
+2,Nguyễn Ngọc Thắng,1992,Nam,Hóa
+5,Nguyễn Tiễn,1995,Nam,Lịch Sử
+4,Nguyễn Viết Nam,1994,Nam,Lý
+3,Nguyễn Văn Nam,1993,Nam,Sinh
+6,Trần Thị Tuyết Mai,1996,Nữ,Giáo Dục Công Dân
