@@ -1,26 +1,26 @@
 package models;
 
-import java.util.Date;
-
-public class Person {
+public abstract class Person {
 
     private String name;
-    private Date dateOfBirth;
-    boolean sex;
-    private String identityCardNumber;
-    private int number;
+    private String birthday;
+    private String gender;
+    private String idCard;
+    private String numberPhone;
     private String email;
+    private String address;
 
     public Person() {
     }
 
-    public Person(String name, Date dateOfBirth, boolean sex, String identityCardNumber, int number, String email) {
+    public Person(String name, String birthday, String gender, String idCard, String numberPhone, String email, String address) {
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.sex = sex;
-        this.identityCardNumber = identityCardNumber;
-        this.number = number;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.numberPhone = numberPhone;
         this.email = email;
+        this.address = address;
     }
 
     public String getName() {
@@ -31,36 +31,36 @@ public class Person {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
-    public boolean isSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(boolean sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getIdentityCardNumber() {
-        return identityCardNumber;
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setIdentityCardNumber(String identityCardNumber) {
-        this.identityCardNumber = identityCardNumber;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
-    public int getNumber() {
-        return number;
+    public String getNumberPhone() {
+        return numberPhone;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumberPhone(String numberPhone) {
+        this.numberPhone = numberPhone;
     }
 
     public String getEmail() {
@@ -69,5 +69,25 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "\nTên: "+ name +
+                "\nSinh ngày: " + birthday +
+                "\nGiới tính: " + gender +
+                "\nCMND: " + idCard +
+                "\nSố điện thoại: " + numberPhone +
+                "\nEmail: " + email +
+                "\nĐịa chỉ: " + address ;
     }
 }

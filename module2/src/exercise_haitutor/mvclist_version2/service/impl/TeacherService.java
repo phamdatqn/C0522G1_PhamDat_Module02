@@ -1,7 +1,6 @@
 package exercise_haitutor.mvclist_version2.service.impl;
 
 import exercise_haitutor.mvclist_version2.exception.DuplicateIDException;
-import exercise_haitutor.mvclist_version2.model.Student;
 import exercise_haitutor.mvclist_version2.model.Teacher;
 import exercise_haitutor.mvclist_version2.service.ITeacherService;
 import exercise_haitutor.mvclist_version2.util.IOFileUtil;
@@ -12,6 +11,7 @@ import java.util.*;
 public class TeacherService implements ITeacherService {
     static Scanner sc = new Scanner(System.in);
     public static List<Teacher> teacherList = new ArrayList<>();
+
     public static Teacher infoTeacher() {
         int id;
         while (true) {
@@ -37,8 +37,7 @@ public class TeacherService implements ITeacherService {
         System.out.print("Nhập vào chuyên môn: ");
         String grade = sc.nextLine();
 
-        Teacher teacher = new Teacher(id, name, dateOfBirth, sex, grade);
-        return teacher;
+        return new Teacher(id, name, dateOfBirth, sex, grade);
     }
 
     @Override
@@ -57,11 +56,12 @@ public class TeacherService implements ITeacherService {
         System.out.println("Thêm mới thành công!\n");
 
     }
-        @Override
+
+    @Override
     public void displayAllTeacher() {
         System.out.println("Danh sách giao viên hiện có: ");
-        List<Teacher>teacherList= IOFileUtil.readTeacherFile(IOFileUtil.PATH_TEACHER);
-        for (Teacher item: teacherList){
+        List<Teacher> teacherList = IOFileUtil.readTeacherFile(IOFileUtil.PATH_TEACHER);
+        for (Teacher item : teacherList) {
             System.out.println(item);
         }
     }
@@ -97,10 +97,10 @@ public class TeacherService implements ITeacherService {
         System.out.println("Mời bạn nhập id cần tìm:");
         int idFind = Integer.parseInt(sc.nextLine());
 
-        for (int i = 0; i < teacherList.size(); i++) {
-            if (idFind == teacherList.get(i).getId()) {
+        for (Teacher teacher : teacherList) {
+            if (idFind == teacher.getId()) {
                 System.out.println("tìm thấy thông tin: " + idFind);
-                System.out.println(teacherList.get(i).toString());
+                System.out.println(teacher);
                 return;
             }
         }
@@ -118,16 +118,16 @@ public class TeacherService implements ITeacherService {
 
         findName = findName.toLowerCase(Locale.ROOT);
         boolean isFlag = false;
-        for (int i = 0; i < teacherList.size(); i++) {
-            if (teacherList.get(i).getName().toLowerCase(Locale.ROOT).contains(findName)) {
-                teachers.add(teacherList.get(i));
+        for (Teacher teacher : teacherList) {
+            if (teacher.getName().toLowerCase(Locale.ROOT).contains(findName)) {
+                teachers.add(teacher);
                 isFlag = true;
             }
         }
         if (isFlag) {
             System.out.println("Danh sách liên quan đến tên : " + findName);
-            for (int i = 0; i < teachers.size(); i++) {
-                System.out.println(teachers.get(i).toString());
+            for (Teacher teacher : teachers) {
+                System.out.println(teacher);
             }
         }
 
@@ -152,7 +152,7 @@ public class TeacherService implements ITeacherService {
             }
         }
         System.out.println("Danh sách sau sắp xếp: ");
-        IOFileUtil.writeTeacherFile(IOFileUtil.PATH_TEACHER,teacherList);
+        IOFileUtil.writeTeacherFile(IOFileUtil.PATH_TEACHER, teacherList);
         displayAllTeacher();
     }
 }

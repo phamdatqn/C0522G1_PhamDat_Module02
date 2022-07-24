@@ -117,7 +117,7 @@ public class StudentService implements IStudentService {
         for (int i = 0; i < studentList.size(); i++) {
             if (idFind == studentList.get(i).getId()) {
                 System.out.println("tìm thấy thông tin: " + idFind);
-                System.out.println(studentList.get(i).toString());
+                System.out.println(studentList.get(i));
                 return;
 
             }

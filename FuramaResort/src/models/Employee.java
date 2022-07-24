@@ -1,7 +1,7 @@
 package models;
 
 public class Employee extends Person{
-    private int iDEmployee;
+    private String idEmployee;
     private String degree;
     private String position;
     private double salary;
@@ -9,19 +9,18 @@ public class Employee extends Person{
     public Employee() {
     }
 
-    public Employee(int employeeCode, String degree, String position, double salary) {
-        this.iDEmployee = employeeCode;
+    public Employee(String name, String birthday, String gender, String idCard,
+                    String numberPhone, String email,String address, String idEmployee,
+                    String degree, String position, double salary) {
+        super(name, birthday, gender, idCard, numberPhone, email, address);
+        this.idEmployee = idEmployee;
         this.degree = degree;
         this.position = position;
         this.salary = salary;
     }
 
-    public int getEmployeeCode() {
-        return iDEmployee;
-    }
-
-    public void setEmployeeCode(int employeeCode) {
-        this.iDEmployee = employeeCode;
+    public String getIdEmployee() {
+        return idEmployee;
     }
 
     public String getDegree() {
@@ -46,5 +45,19 @@ public class Employee extends Person{
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+
+    @Override
+    public String toString() {
+        return String.format("\n************ EMPLOYEE ************" +
+                "\nMã nhân viên: %s" +
+                "\nChức vụ: %s"+
+                "\nLương: %12.2f VNĐ"
+                + super.toString(),idEmployee,getPosition(),getSalary());
+    }
+    public String getInfo(){
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%12.2f,",getName(),  getBirthday(),  getGender(),  getIdCard(),
+                getNumberPhone(), getEmail(),  getAddress(),  idEmployee,degree, position,  salary);
     }
 }

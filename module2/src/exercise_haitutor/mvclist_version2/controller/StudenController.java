@@ -1,6 +1,5 @@
 package exercise_haitutor.mvclist_version2.controller;
 
-import exercise_haitutor.mvclist.exception.DuplicateIDException;
 import exercise_haitutor.mvclist_version2.service.IStudentService;
 import exercise_haitutor.mvclist_version2.service.impl.StudentService;
 

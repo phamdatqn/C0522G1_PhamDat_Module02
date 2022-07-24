@@ -1,20 +1,15 @@
 package models;
 
-public class Villa extends Facility{
-   private String roomStandard;
-   private int swimmingPoolArea;
-   private int numberFloors;
+public class Villa extends Facility {
+    private String roomStandard;
+    private double swimmingPoolArea;
+    private int numberFloors;
 
-    public Villa(){}
-
-    public Villa(String roomStandard, int swimmingPoolArea, int numberFloors) {
-        this.roomStandard = roomStandard;
-        this.swimmingPoolArea = swimmingPoolArea;
-        this.numberFloors = numberFloors;
+    public Villa() {
     }
 
-    public Villa(String name, int useArea, double rentalCosts, int numberPeople, String rentalType, String roomStandard, int swimmingPoolArea, int numberFloors) {
-        super(name, useArea, rentalCosts, numberPeople, rentalType);
+    public Villa(String nameFacility, int useArea, double rentalCosts, int maxPeople, String typeRental, String roomStandard, double swimmingPoolArea, int numberFloors) {
+        super(nameFacility, useArea, rentalCosts, maxPeople, typeRental);
         this.roomStandard = roomStandard;
         this.swimmingPoolArea = swimmingPoolArea;
         this.numberFloors = numberFloors;
@@ -28,11 +23,11 @@ public class Villa extends Facility{
         this.roomStandard = roomStandard;
     }
 
-    public int getSwimmingPoolArea() {
+    public double getSwimmingPoolArea() {
         return swimmingPoolArea;
     }
 
-    public void setSwimmingPoolArea(int swimmingPoolArea) {
+    public void setSwimmingPoolArea(double swimmingPoolArea) {
         this.swimmingPoolArea = swimmingPoolArea;
     }
 
@@ -42,5 +37,13 @@ public class Villa extends Facility{
 
     public void setNumberFloors(int numberFloors) {
         this.numberFloors = numberFloors;
+    }
+
+    @Override
+    public String toString() {
+        return "\n************ VILLA ************" +
+                "\nTiêu chuẩn phòng: " + roomStandard +
+                "\nDiện tích hồ bơi : " + swimmingPoolArea +
+                "\nSố tầng: " + numberFloors + super.toString();
     }
 }
