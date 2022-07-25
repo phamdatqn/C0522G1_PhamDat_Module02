@@ -1,7 +1,7 @@
-package ss17_byte_stream.exercise.binary_file.controller;
+package ss17_byte_stream.exercise.product.controller;
 
-import ss17_byte_stream.exercise.binary_file.model.Product;
-import ss17_byte_stream.exercise.binary_file.service.impl.ProductService;
+import ss17_byte_stream.exercise.product.model.Product;
+import ss17_byte_stream.exercise.product.service.impl.ProductService;
 
 import java.io.IOException;
 import java.util.Scanner;

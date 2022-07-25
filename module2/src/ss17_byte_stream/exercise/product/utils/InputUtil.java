@@ -1,4 +1,4 @@
-package ss17_byte_stream.exercise.binary_file.utils;
+package ss17_byte_stream.exercise.product.utils;
 
 import java.util.Scanner;
 

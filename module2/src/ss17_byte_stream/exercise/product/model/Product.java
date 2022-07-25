@@ -1,4 +1,4 @@
-package ss17_byte_stream.exercise.binary_file.model;
+package ss17_byte_stream.exercise.product.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package ss17_byte_stream.exercise.binary_file.exception;
+package ss17_byte_stream.exercise.product.exception;
 
 public class DuplicateIDException extends Exception {
     public DuplicateIDException(String message) {

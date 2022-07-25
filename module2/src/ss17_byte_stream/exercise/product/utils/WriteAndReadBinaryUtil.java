@@ -1,6 +1,6 @@
-package ss17_byte_stream.exercise.binary_file.utils;
+package ss17_byte_stream.exercise.product.utils;
 
-import ss17_byte_stream.exercise.binary_file.model.Product;
+import ss17_byte_stream.exercise.product.model.Product;
 
 import java.io.*;
 import java.util.ArrayList;

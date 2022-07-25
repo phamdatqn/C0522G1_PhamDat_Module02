@@ -1,10 +1,10 @@
-package ss17_byte_stream.exercise.binary_file.service.impl;
+package ss17_byte_stream.exercise.product.service.impl;
 
-import ss17_byte_stream.exercise.binary_file.exception.DuplicateIDException;
-import ss17_byte_stream.exercise.binary_file.model.Product;
-import ss17_byte_stream.exercise.binary_file.service.IProduct;
-import ss17_byte_stream.exercise.binary_file.utils.InputUtil;
-import ss17_byte_stream.exercise.binary_file.utils.WriteAndReadBinaryUtil;
+import ss17_byte_stream.exercise.product.exception.DuplicateIDException;
+import ss17_byte_stream.exercise.product.model.Product;
+import ss17_byte_stream.exercise.product.service.IProduct;
+import ss17_byte_stream.exercise.product.utils.InputUtil;
+import ss17_byte_stream.exercise.product.utils.WriteAndReadBinaryUtil;
 
 import java.io.IOException;
 import java.util.List;
