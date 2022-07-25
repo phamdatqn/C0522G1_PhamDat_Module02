@@ -13,13 +13,13 @@ public class EmployeeManagementController {
     public void menuEmployee() {
         do {
             System.out.println("\n========== Menu Quản Lý Nhân Viên ==========" +
-                    "\n1. Thêm mới nhân viên \n" +
-                    "2. Xóa nhân viên \n" +
-                    "3. Sửa nhân viên \n" +
-                    "4. Xem danh sách nhân viên \n" +
-                    "5. Tìm nhân theo ID \n" +
-                    "6. Tìm nhân viên theo tên \n" +
-                    "7. Quay về menu chính.\n Mời chọn: ");
+                    "\n1. Add new employee\n" +
+                    "2. Delete employee\n" +
+                    "3. Edit employee\n" +
+                    "4. Display employee\n" +
+                    "5. Search ID employee\n" +
+                    "6. Search name employee\n" +
+                    "7. Return main menu.\n");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:

@@ -1,26 +1,23 @@
 package test;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 class Parent {
-    public static void main(String[] args) {
-      Scanner scanner = new Scanner(System.in);
-      System.out.println("nhập chuỗi.");
-      String string = scanner.nextLine();
-      String[] array;
-      array = string.trim().toLowerCase().split(" ");
-      Map<String, Integer> map = new TreeMap<>();
-      for (String s : array) {
-        if (map.containsKey(s)) {
-          map.replace(s, map.get(s) + 1);
-        } else {
-          map.put(s, 1);
+    public static void main(String[] args) throws IOException {
+      InputStream is = System.in;
+      while (true) {
+        System.out.print("Nhập 1 ký tự: ");
+        int ch = is.read();
+        if (ch == 'q') {
+          System.out.println("Finished!");
+          break;
         }
+        is.skip(1); // Loại bỏ 2 ký tự \r và \n
+        System.out.println("Ký tự nhận được: " + (char) ch);
       }
-
-      System.out.println(map);
     }
-
 }

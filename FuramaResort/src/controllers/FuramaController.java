@@ -7,15 +7,15 @@ public class FuramaController {
         EmployeeManagementController employeeManagementController = new EmployeeManagementController();
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("========== PHẦN MỀM QUẢN LÝ FURAMA==========" +
+            System.out.println("========== PHẦN MỀM QUẢN LÝ FURAMA RESORT ==========" +
                     "\n1. Employee Management" +
                     "\n2. Customer Management" +
                     "\n3. Facility Management" +
                     "\n4. Booking Management" +
                     "\n5. Promotion Management" +
-                    "\n6. Exit\nMời choice:");
+                    "\n6. Exit\n");
 
-            System.out.print("Mời bạn nhập lựa chọn: ");
+            System.out.print("Please enter your selection: ");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1: {

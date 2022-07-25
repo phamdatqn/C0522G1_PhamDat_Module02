@@ -120,10 +120,11 @@ public class EmployeeService implements IEmployeeService {
                 employeeList.get(i).setPosition(InputUtil.getString("Nhập chức vụ cần sửa:"));
                 employeeList.get(i).setSalary(InputUtil.getDouble("Nhập lương cần sửa:"));
 
-                ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
-                employeeList.clear();
+
             }
         }
+        ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
+        employeeList.clear();
     }
 
     @Override
