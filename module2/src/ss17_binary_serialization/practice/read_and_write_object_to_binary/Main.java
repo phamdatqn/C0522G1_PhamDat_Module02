@@ -1,4 +1,4 @@
-package ss17_byte_stream.practice.read_and_write_object_to_binary;
+package ss17_binary_serialization.practice.read_and_write_object_to_binary;
 
 import java.io.*;
 import java.util.ArrayList;

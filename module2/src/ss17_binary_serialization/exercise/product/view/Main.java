@@ -1,6 +1,6 @@
-package ss17_byte_stream.exercise.product.view;
+package ss17_binary_serialization.exercise.product.view;
 
-import ss17_byte_stream.exercise.product.controller.MainController;
+import ss17_binary_serialization.exercise.product.controller.MainController;
 
 import java.io.IOException;
 

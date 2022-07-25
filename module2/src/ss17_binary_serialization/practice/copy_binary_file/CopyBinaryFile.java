@@ -1,4 +1,4 @@
-package ss17_byte_stream.practice.copy_binary_file;
+package ss17_binary_serialization.practice.copy_binary_file;
 
 import java.io.*;
 import java.nio.file.Files;

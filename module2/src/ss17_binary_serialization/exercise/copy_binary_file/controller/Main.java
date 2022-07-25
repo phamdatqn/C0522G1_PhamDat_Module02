@@ -1,8 +1,8 @@
-package ss17_byte_stream.exercise.copy_binary_file.controller;
+package ss17_binary_serialization.exercise.copy_binary_file.controller;
 
 
-import ss17_byte_stream.exercise.copy_binary_file.exception.FileExistsException;
-import ss17_byte_stream.exercise.copy_binary_file.model.CopyFileBinary;
+import ss17_binary_serialization.exercise.copy_binary_file.exception.FileExistsException;
+import ss17_binary_serialization.exercise.copy_binary_file.model.CopyFileBinary;
 
 import java.io.File;
 import java.io.IOException;

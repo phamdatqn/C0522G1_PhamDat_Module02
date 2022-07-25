@@ -1,10 +1,10 @@
-package ss17_byte_stream.exercise.product.service.impl;
+package ss17_binary_serialization.exercise.product.service.impl;
 
-import ss17_byte_stream.exercise.product.exception.DuplicateIDException;
-import ss17_byte_stream.exercise.product.model.Product;
-import ss17_byte_stream.exercise.product.service.IProduct;
-import ss17_byte_stream.exercise.product.utils.InputUtil;
-import ss17_byte_stream.exercise.product.utils.WriteAndReadBinaryUtil;
+import ss17_binary_serialization.exercise.product.exception.DuplicateIDException;
+import ss17_binary_serialization.exercise.product.model.Product;
+import ss17_binary_serialization.exercise.product.service.IProduct;
+import ss17_binary_serialization.exercise.product.utils.InputUtil;
+import ss17_binary_serialization.exercise.product.utils.WriteAndReadBinaryUtil;
 
 import java.io.IOException;
 import java.util.List;
