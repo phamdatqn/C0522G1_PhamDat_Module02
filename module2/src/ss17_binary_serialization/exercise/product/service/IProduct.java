@@ -7,6 +7,6 @@ import java.io.IOException;
 public interface IProduct {
     void add() throws IOException;
     void display() throws IOException;
-    Product findId() throws IOException;
+    Product findId(int id) throws IOException;
     void remove() throws IOException;
 }

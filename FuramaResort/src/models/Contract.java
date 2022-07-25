@@ -68,4 +68,8 @@ public class Contract {
                 "\nTổng tiền phải thanh toán: " + payments +
                 "\nMã khách hàng: " + idCustomer ;
     }
+
+    public String getInfo(){
+        return String.format("%s,%s,%.2f,%.2f,%s",idContract, idBooking, moneyDeposit,payments, idCustomer);
+    }
 }

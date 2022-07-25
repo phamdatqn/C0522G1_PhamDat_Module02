@@ -79,4 +79,9 @@ public class Booking {
                 "\nTên dịch vụ: " + nameService +
                 "\nLoại dịch vụ: " + typeService ;
     }
+
+    public String getInfo(){
+        return String.format("%s,%s,%s,%s,%s,%s",idBooking,startDay, endDay, idCustomer,
+                 nameService, typeService);
+    }
 }

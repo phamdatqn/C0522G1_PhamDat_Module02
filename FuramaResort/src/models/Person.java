@@ -79,6 +79,7 @@ public abstract class Person {
         this.address = address;
     }
 
+    public abstract String getInfo();
     @Override
     public String toString() {
         return

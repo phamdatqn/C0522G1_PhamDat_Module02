@@ -120,7 +120,6 @@ public class EmployeeService implements IEmployeeService {
                 employeeList.get(i).setPosition(InputUtil.getString("Nhập chức vụ cần sửa:"));
                 employeeList.get(i).setSalary(InputUtil.getDouble("Nhập lương cần sửa:"));
 
-
             }
         }
         ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
@@ -136,7 +135,6 @@ public class EmployeeService implements IEmployeeService {
             if (employee.getIdEmployee().equals(idFind)) {
                 System.out.println("tìm thấy thông tin: " + idFind);
                 System.out.println(employee);
-                return;
             }
         }
         System.out.println("Không tìm thấy thông tin: " + idFind);

@@ -2,7 +2,7 @@ package models;
 
 public abstract class Facility {
     private String nameFacility;
-    private int useArea;
+    private double useArea;
     private double rentalCosts;
     private int maxPeople;
     private String typeRental;
@@ -10,7 +10,7 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String nameFacility, int useArea, double rentalCosts, int maxPeople, String typeRental) {
+    public Facility(String nameFacility, double useArea, double rentalCosts, int maxPeople, String typeRental) {
         this.nameFacility = nameFacility;
         this.useArea = useArea;
         this.rentalCosts = rentalCosts;
@@ -26,7 +26,7 @@ public abstract class Facility {
         this.nameFacility = nameFacility;
     }
 
-    public int getUseArea() {
+    public double getUseArea() {
         return useArea;
     }
 
@@ -67,5 +67,7 @@ public abstract class Facility {
                 "\nSố lượng người: " + maxPeople +
                 "\nLoại thuê:" + typeRental;
     }
+
+    public abstract String getInfo();
 
 }

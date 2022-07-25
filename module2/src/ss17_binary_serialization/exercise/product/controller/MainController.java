@@ -2,6 +2,7 @@ package ss17_binary_serialization.exercise.product.controller;
 
 import ss17_binary_serialization.exercise.product.model.Product;
 import ss17_binary_serialization.exercise.product.service.impl.ProductService;
+import ss17_binary_serialization.exercise.product.utils.InputUtil;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -30,7 +31,7 @@ public class MainController {
                     break;
                 }
                 case 3: {
-                    Product product=productService.findId();
+                    Product product=productService.findId(InputUtil.getInt("Nhập mã sản phẩm cần tìm: "));
                     if (product!=null){
                         System.out.println("Thông tin sản phẩm cần tìm là: "+product);
                     }else {

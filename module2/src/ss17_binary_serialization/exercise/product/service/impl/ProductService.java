@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductService implements IProduct {
-    static String PATH = "module2/src/ss17_byte_stream/exercise/binary_file/data/data.csv";
+    static String PATH = "module2/src/ss17_binary_serialization/exercise/product/data/data.csv";
     static Scanner scanner = new Scanner(System.in);
 
 
@@ -30,7 +30,7 @@ public class ProductService implements IProduct {
 //        }
 //    }
 
-    public static Product infoProduct(int id) {
+    public Product infoProduct(int id) {
 
         System.out.println("Nhập tên sản phẩm: ");
         String name = scanner.nextLine();
@@ -56,16 +56,14 @@ public class ProductService implements IProduct {
     @Override
     public void add() throws IOException {
         List<Product> productList = WriteAndReadBinaryUtil.readDataForm(PATH);
-
-
         Product product;
         while (true) {
             try {
-                System.out.println("Nhập mã sản phẩm: ");
-                int id = Integer.parseInt(scanner.nextLine());
+
+                int id =InputUtil.getInt("Nhập mã sản phẩm: ");
                 for (int i = 0; i < productList.size(); i++) {
                     if (id == productList.get(i).getId()) {
-                        throw new DuplicateIDException("Mã sản phẩm đã tồn tại");
+                        throw new DuplicateIDException("Mã sản phẩm đã tồn tại!");
                     }
                 }
                 product = infoProduct(id);
@@ -88,12 +86,10 @@ public class ProductService implements IProduct {
     }
 
     @Override
-    public Product findId() throws IOException {
+    public Product findId(int id) throws IOException {
         List<Product> productList = WriteAndReadBinaryUtil.readDataForm(PATH);
-
-        int findId = InputUtil.getInt("Nhập mã sản phẩm cần tìm: ");
         for (Product item : productList) {
-            if (findId == item.getId()) {
+            if (id == item.getId()) {
                 return item;
             }
         }
@@ -105,24 +101,18 @@ public class ProductService implements IProduct {
         List<Product> productList = WriteAndReadBinaryUtil.readDataForm(PATH);
 
         int idRemove = InputUtil.getInt("Mời bạn nhập id cần xóa:");
-        boolean answer = false;
-        for (int i = 0; i < productList.size(); i++) {
-            if (productList.get(i).getId() == idRemove) {
-                System.out.println("Bạn chắc chắn muốn xóa?\n" +
-                        "1. Có\n" +
-                        "2. Không");
-                int chooseYesNo = Integer.parseInt(scanner.nextLine());
-                if (chooseYesNo == 1) {
-                    productList.remove(i);
-
-                    WriteAndReadBinaryUtil.writeToFile(PATH, productList);
-                    System.out.println("đã xóa id " + idRemove + " thành công!");
-                }
-                answer = true;
-                break;
+        Product product = findId(idRemove);
+        if (product != null) {
+            System.out.println("Bạn chắc chắn muốn xóa?\n" +
+                    "1. Có\n" +
+                    "2. Không");
+            int chooseYesNo = Integer.parseInt(scanner.nextLine());
+            if (chooseYesNo == 1) {
+                productList.remove(product);
+                WriteAndReadBinaryUtil.writeToFile(PATH, productList);
+                System.out.println("đã xóa id " + idRemove + " thành công!");
             }
-        }
-        if (!answer) {
+        } else {
             System.out.println("Không tìm thấy id: " + idRemove);
         }
     }

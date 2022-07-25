@@ -34,4 +34,9 @@ public class House extends Facility{
                 "\nTiêu chuẩn phòng: " + roomStandard +
                 "\nSố tầng: " + numberFloors+ super.toString();
     }
+
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s",roomStandard,numberFloors);
+    }
 }

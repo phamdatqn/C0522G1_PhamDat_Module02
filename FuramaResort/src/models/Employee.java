@@ -56,7 +56,9 @@ public class Employee extends Person{
                 "\nLương: %12.2f VNĐ"
                 + super.toString(),idEmployee,getPosition(),getSalary());
     }
-    public String getInfo(){
+
+    @Override
+    public String getInfo() {
         return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%12.2f,",getName(),  getBirthday(),  getGender(),  getIdCard(),
                 getNumberPhone(), getEmail(),  getAddress(),  idEmployee,degree, position,  salary);
     }
