@@ -13,8 +13,8 @@ public class ReadWriteEmployeeUtil extends IOFileUtil {
         String[] arrProperty;
         for (String item : data) {
             arrProperty = item.split(",");
-            employeeData.add(new Employee(arrProperty[0],arrProperty[1],arrProperty[2],arrProperty[3]
-                    ,arrProperty[4],arrProperty[5],arrProperty[6],arrProperty[7],arrProperty[8],arrProperty[9],Double.parseDouble(arrProperty[10])));
+            employeeData.add(new Employee(arrProperty[0], arrProperty[1], arrProperty[2], arrProperty[3]
+                    , arrProperty[4], arrProperty[5], arrProperty[6], arrProperty[7], arrProperty[8], arrProperty[9], Double.parseDouble(arrProperty[10])));
         }
         return employeeData;
     }

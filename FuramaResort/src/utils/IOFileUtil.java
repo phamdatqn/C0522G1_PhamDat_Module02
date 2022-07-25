@@ -6,7 +6,8 @@ import java.util.List;
 
 public abstract class IOFileUtil {
     public static String PATH_EMPLOYEE = "FuramaResort/src/data/employee.csv";
-   // public static String PATH_CUSTOMER = "FuramaResort/src/data/customers.csv";
+    public static String PATH_CUSTOMER = "FuramaResort/src/data/customers.csv";
+
     public static List<String> readFile(String path) {
         List<String> stringsRead = new ArrayList<>();
         try {
@@ -17,7 +18,7 @@ public abstract class IOFileUtil {
             }
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
-           br.readLine();
+            br.readLine();
             while ((line = br.readLine()) != null) {
                 stringsRead.add(line);
             }

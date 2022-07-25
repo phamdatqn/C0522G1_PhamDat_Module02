@@ -4,6 +4,7 @@ import exception.DuplicateIDException;
 import models.Employee;
 import services.IEmployeeService;
 import utils.IOFileUtil;
+import utils.InputDegreeUtil;
 import utils.InputUtil;
 import utils.ReadWriteEmployeeUtil;
 
@@ -32,7 +33,7 @@ public class EmployeeService implements IEmployeeService {
 
         String idEmployee = InputUtil.getString("Nhập mã nhân viên: ");
 
-        String degree = InputUtil.getString("Nhập trình độ: ");
+        String degree = InputDegreeUtil.inputtDegreeUtil();
 
         String position = InputUtil.getString("Nhập chức vụ: ");
 
@@ -44,23 +45,27 @@ public class EmployeeService implements IEmployeeService {
 
 
     @Override
-    public void add() throws DuplicateIDException {
+    public void add() {
         Employee employee;
         employeeList = ReadWriteEmployeeUtil.readEmployee(IOFileUtil.PATH_EMPLOYEE);
 
         employee = infoEmployee();
-        for (Employee item : employeeList) {
-            if (item.getIdEmployee().equals(employee.getIdEmployee())) {
-                throw new DuplicateIDException("Mã nhân viên đã tồn tại!");
+        try {
+            for (Employee item : employeeList) {
+                if (item.getIdEmployee().equals(employee.getIdEmployee())) {
+                    throw new DuplicateIDException("Mã nhân viên đã tồn tại!");
+                }
+                if (item.getIdCard().equals(employee.getIdCard())) {
+                    throw new DuplicateIDException("CMND đã tồn tại");
+                }
             }
-            if (item.getIdCard().equals(employee.getIdCard())) {
-                throw new DuplicateIDException("CMND đã tồn tại");
-            }
+            employeeList.add(employee);
+            ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
+            System.out.println("Thêm mới thành công!\n");
+        } catch (DuplicateIDException e) {
+            e.printStackTrace();
 
         }
-        employeeList.add(employee);
-        ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
-        System.out.println("Thêm mới thành công!\n");
     }
 
     @Override
@@ -93,7 +98,7 @@ public class EmployeeService implements IEmployeeService {
         String idFind = InputUtil.getString("Mời bạn nhập mã nhân viên cần sửa:");
         for (int i = 0; i < employeeList.size(); i++) {
             if (employeeList.get(i).getIdEmployee().equals(idFind)) {
-                System.out.println("\nThông tin nhân viên đang sửa là:\n"+employeeList.get(i));
+                System.out.println("\nThông tin nhân viên đang sửa là:\n" + employeeList.get(i));
 
                 employeeList.get(i).setName(InputUtil.getString("\nNhập tên cần sửa:"));
                 employeeList.get(i).setBirthday(InputUtil.getString("Nhập ngày sinh cần sửa:"));

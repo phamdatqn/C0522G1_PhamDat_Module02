@@ -1,4 +1,5 @@
 package services;
 
-public interface IFacilityService extends IService{
+public interface IFacilityService<E> extends IService {
+
 }

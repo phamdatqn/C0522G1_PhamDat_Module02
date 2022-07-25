@@ -1,6 +1,5 @@
 package controllers;
 
-import exception.DuplicateIDException;
 import services.IEmployeeService;
 import services.impl.EmployeeService;
 
@@ -23,15 +22,7 @@ public class EmployeeManagementController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
-                    while (true) {
-                        try {
-                            iEmployeeService.add();
-                            break;
-                        } catch (DuplicateIDException e) {
-                            System.out.println(e.getMessage());
-                        }
-
-                    }
+                    iEmployeeService.add();
                     break;
                 case 2:
                     iEmployeeService.remove();

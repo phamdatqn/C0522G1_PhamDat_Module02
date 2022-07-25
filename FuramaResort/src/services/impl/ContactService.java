@@ -1,8 +1,9 @@
 package services.impl;
 
-import services.IFacilityService;
+import services.IContactService;
 
-public class FacilityService implements IFacilityService {
+public class ContactService implements IContactService {
+
     @Override
     public void add() {
 
