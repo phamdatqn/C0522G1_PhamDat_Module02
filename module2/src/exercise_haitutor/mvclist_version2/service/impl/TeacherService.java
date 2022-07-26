@@ -1,10 +1,13 @@
 package exercise_haitutor.mvclist_version2.service.impl;
 
 import exercise_haitutor.mvclist_version2.exception.DuplicateIDException;
+import exercise_haitutor.mvclist_version2.exception.InputNameException;
 import exercise_haitutor.mvclist_version2.model.Teacher;
 import exercise_haitutor.mvclist_version2.service.ITeacherService;
 import exercise_haitutor.mvclist_version2.util.IOFileUtil;
 import exercise_haitutor.mvclist_version2.util.InputBirthDayUtil;
+import exercise_haitutor.mvclist_version2.util.InputNameUtil;
+import exercise_haitutor.mvclist_version2.util.InputUtil;
 
 import java.io.IOException;
 import java.util.*;
@@ -13,22 +16,19 @@ public class TeacherService implements ITeacherService {
     static Scanner sc = new Scanner(System.in);
     public static List<Teacher> teacherList = new ArrayList<>();
 
-    public static Teacher infoTeacher() {
-        int id;
+    public static Teacher infoTeacher(int id) {
+        String name;
         while (true) {
             try {
-                System.out.print("Nhập id: ");
-                id = Integer.parseInt(sc.nextLine());
+                System.out.print("Nhập họ và tên Giáo Viên: ");
+                name = InputNameUtil.getNameUtil(sc.nextLine());
                 break;
-            } catch (NumberFormatException e) {
-                System.out.println("Nhập sai, không được nhập ký tự chữ !");
+
+            } catch (InputNameException e) {
+                System.err.println(e.getMessage());
             }
+
         }
-
-
-        System.out.print("Nhập name: ");
-        String name = sc.nextLine();
-
         String dateOfBirth = InputBirthDayUtil.getBirthDay("Nhập ngày sinh: ");
 
         System.out.print("Nhập Giới tính: ");
@@ -43,18 +43,25 @@ public class TeacherService implements ITeacherService {
     @Override
     public void add() throws DuplicateIDException, IOException {
         Teacher teacher;
+        int id;
         teacherList = IOFileUtil.readTeacherFile(IOFileUtil.PATH_TEACHER);
-
-        teacher = infoTeacher();
-        for (Teacher item : teacherList) {
-            if (item.getId() == teacher.getId()) {
-                throw new DuplicateIDException("Id đã tồn tại!");
+        while (true) {
+            try {
+                id = InputUtil.getInt("Nhập id giáo viên mới:");
+                for (Teacher item : teacherList) {
+                    if (item.getId() == id) {
+                        throw new DuplicateIDException("Id đã tồn tại!");
+                    }
+                }
+                teacher = infoTeacher(id);
+                teacherList.add(teacher);
+                IOFileUtil.writeTeacherFile(IOFileUtil.PATH_TEACHER, teacherList);
+                System.err.println("Thêm mới thành công!\n");
+                break;
+            } catch (DuplicateIDException e) {
+                System.err.println(e.getMessage());
             }
         }
-        teacherList.add(teacher);
-        IOFileUtil.writeTeacherFile(IOFileUtil.PATH_TEACHER, teacherList);
-        System.out.println("Thêm mới thành công!\n");
-
     }
 
     @Override

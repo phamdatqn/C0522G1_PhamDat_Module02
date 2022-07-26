@@ -17,13 +17,11 @@ public class StudentService implements IStudentService {
     static Scanner sc = new Scanner(System.in);
 
     public static Student infoStudent(int id) {
-
         double point;
-
         String name ;
         while (true) {
             try {
-                System.out.print("Nhập họ và tên: ");
+                System.out.print("Nhập họ và tên Học Viên: ");
                 name = InputNameUtil.getNameUtil(sc.nextLine());
                 break;
 
@@ -37,16 +35,6 @@ public class StudentService implements IStudentService {
 
         System.out.print("Nhập giới tính: ");
         String sex = sc.nextLine();
-//        while (true) {
-//            try {
-//                System.out.print("Nhập id: ");
-//                id = Integer.parseInt(sc.nextLine());
-//                break;
-//
-//            } catch (NumberFormatException e) {
-//                System.out.println("Không được nhập ký tự chữ, phải nhập số!.");
-//            }
-//        }
         while (true) {
             try {
                 System.out.print("Nhập điểm: ");
@@ -87,7 +75,7 @@ public class StudentService implements IStudentService {
                 System.out.println("Thêm mới thành công!\n");
                 break;
             } catch (DuplicateIDException e) {
-                System.err.println(e.getMessage());;
+                System.err.println(e.getMessage());
             }
         }
 

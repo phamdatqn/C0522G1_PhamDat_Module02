@@ -25,11 +25,10 @@ public class InputBirthDayUtil {
                     switch (month) {
                         case 2:
                             if (checkYear(year) && day > 29) {
-                                throw new DateOfDatPhamException("ERR: Là năm nhuận, nên tháng 02 có 29 ngày!");
+                                throw new DateOfDatPhamException("LỖI: Năm "+year+" tháng 02 chỉ có tối đa 29 ngày!");
                             }
                             if (!checkYear(year) && day > 28) {
-
-                                throw new DateOfDatPhamException("ERR: Là năm không nhuận, nên tháng 02 có 28 ngày!");
+                                throw new DateOfDatPhamException("LỖI: Năm "+year+" tháng 02 chỉ có tối đa 28 ngày!");
                             }
                         case 4:
                         case 6:
