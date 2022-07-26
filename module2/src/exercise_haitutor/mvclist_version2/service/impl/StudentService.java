@@ -1,9 +1,13 @@
 package exercise_haitutor.mvclist_version2.service.impl;
 
 import exercise_haitutor.mvclist_version2.exception.DuplicateIDException;
+import exercise_haitutor.mvclist_version2.exception.InputNameException;
 import exercise_haitutor.mvclist_version2.model.Student;
 import exercise_haitutor.mvclist_version2.service.IStudentService;
 import exercise_haitutor.mvclist_version2.util.IOFileUtil;
+import exercise_haitutor.mvclist_version2.util.InputBirthDayUtil;
+import exercise_haitutor.mvclist_version2.util.InputNameUtil;
+import exercise_haitutor.mvclist_version2.util.InputUtil;
 
 import java.io.IOException;
 import java.util.*;
@@ -12,28 +16,37 @@ public class StudentService implements IStudentService {
     public static List<Student> studentList = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
-    public static Student infoStudent() {
-        int id;
+    public static Student infoStudent(int id) {
+
         double point;
 
-        System.out.print("Nhập name: ");
-        String name = sc.nextLine();
+        String name ;
+        while (true) {
+            try {
+                System.out.print("Nhập họ và tên: ");
+                name = InputNameUtil.getNameUtil(sc.nextLine());
+                break;
 
-        System.out.print("Nhập ngày sinh: ");
-        String dateOfBirth = sc.nextLine();
+            } catch (InputNameException e) {
+                System.err.println(e.getMessage());
+            }
+
+        }
+
+        String dateOfBirth = InputBirthDayUtil.getBirthDay("Nhập ngày sinh: ");
 
         System.out.print("Nhập giới tính: ");
         String sex = sc.nextLine();
-        while (true) {
-            try {
-                System.out.print("Nhập id: ");
-                id = Integer.parseInt(sc.nextLine());
-                break;
-
-            } catch (NumberFormatException e) {
-                System.out.println("Không được nhập ký tự chữ, phải nhập số!.");
-            }
-        }
+//        while (true) {
+//            try {
+//                System.out.print("Nhập id: ");
+//                id = Integer.parseInt(sc.nextLine());
+//                break;
+//
+//            } catch (NumberFormatException e) {
+//                System.out.println("Không được nhập ký tự chữ, phải nhập số!.");
+//            }
+//        }
         while (true) {
             try {
                 System.out.print("Nhập điểm: ");
@@ -45,11 +58,11 @@ public class StudentService implements IStudentService {
             }
         }
 
-
         System.out.print("Nhập vào lớp: ");
         String grade = sc.nextLine();
 
-        return new Student(id, name, dateOfBirth, sex, point, grade);
+        return new Student(id,name, dateOfBirth, sex, point, grade);
+
     }
 
 
@@ -57,20 +70,28 @@ public class StudentService implements IStudentService {
     public void add() throws IOException, DuplicateIDException {
 
         Student student;
+        int id;
         studentList = IOFileUtil.readStudentFile(IOFileUtil.PATH_STUDENT);
 
-        student = infoStudent();
-        for (Student item : studentList) {
-            if (item.getId() == student.getId()) {
-                throw new DuplicateIDException("Id đã tồn tại!");
+        while (true){
+            try {
+                 id = InputUtil.getInt("Nhập id: ");
+                for (Student item : studentList) {
+                    if (item.getId()==id) {
+                        throw new DuplicateIDException("Mã nhân viên đã tồn tại!");
+                    }
+                }
+                student = infoStudent(id);
+                studentList.add(student);
+                IOFileUtil.writeStudentFile(IOFileUtil.PATH_STUDENT, studentList);
+                System.out.println("Thêm mới thành công!\n");
+                break;
+            } catch (DuplicateIDException e) {
+                System.err.println(e.getMessage());;
             }
         }
-        studentList.add(student);
-        IOFileUtil.writeStudentFile(IOFileUtil.PATH_STUDENT, studentList);
-        System.out.println("Thêm mới thành công!\n");
 
     }
-
 
     @Override
     public void displayAllStudent() {

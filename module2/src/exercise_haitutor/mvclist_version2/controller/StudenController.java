@@ -2,6 +2,7 @@ package exercise_haitutor.mvclist_version2.controller;
 
 import exercise_haitutor.mvclist_version2.service.IStudentService;
 import exercise_haitutor.mvclist_version2.service.impl.StudentService;
+import exercise_haitutor.mvclist_version2.util.InputUtil;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,8 +20,8 @@ public class StudenController {
                     "4. Tìm học sinh theo ID \n" +
                     "5. Tìm học sinh theo tên \n" +
                     "6. Sắp xếp theo tên \n" +
-                    "7. Quay về menu chính.\n Mời chọn: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+                    "7. Quay về menu chính.\n");
+            int choose = InputUtil.getInt("Mời nhập lựa chọn: ");
             switch (choose) {
                 case 1:
                     while (true) {

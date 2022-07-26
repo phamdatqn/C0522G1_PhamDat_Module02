@@ -42,8 +42,6 @@ public class EmployeeService implements IEmployeeService {
         return new Employee(name, birthday, gender, idCard, numberPhone,
                 email, address, idEmployee, degree, position, salary);
     }
-
-
     @Override
     public void add() {
         Employee employee;

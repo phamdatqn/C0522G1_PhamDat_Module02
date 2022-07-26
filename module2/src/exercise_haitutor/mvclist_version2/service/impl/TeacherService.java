@@ -4,6 +4,7 @@ import exercise_haitutor.mvclist_version2.exception.DuplicateIDException;
 import exercise_haitutor.mvclist_version2.model.Teacher;
 import exercise_haitutor.mvclist_version2.service.ITeacherService;
 import exercise_haitutor.mvclist_version2.util.IOFileUtil;
+import exercise_haitutor.mvclist_version2.util.InputBirthDayUtil;
 
 import java.io.IOException;
 import java.util.*;
@@ -28,8 +29,7 @@ public class TeacherService implements ITeacherService {
         System.out.print("Nhập name: ");
         String name = sc.nextLine();
 
-        System.out.print("Nhập ngày sinh: ");
-        String dateOfBirth = sc.nextLine();
+        String dateOfBirth = InputBirthDayUtil.getBirthDay("Nhập ngày sinh: ");
 
         System.out.print("Nhập Giới tính: ");
         String sex = sc.nextLine();

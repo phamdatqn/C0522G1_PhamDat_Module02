@@ -1,5 +1,7 @@
 package exercise_haitutor.mvclist_version2.controller;
 
+import exercise_haitutor.mvclist_version2.util.InputUtil;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -15,8 +17,7 @@ public class MainController {
                     "2. Quản lí giảng viên \n" +
                     "3. Thoát chương trình");
 
-            System.out.print("Mời bạn nhập lựa chọn: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = InputUtil.getInt("Mời bạn nhập lựa chọn: ");
             switch (choose) {
                 case 1: {
                     studentController.menuStudent();
