@@ -7,7 +7,7 @@ public class InputUtil {
 
     public static String getString(String str) {
         System.out.println(str);
-        return scanner.nextLine();
+        return str;
     }
 
     public static double getDouble(String str) {

@@ -5,7 +5,7 @@ import exercise_haitutor.mvclist_version2.exception.InputNameException;
 import exercise_haitutor.mvclist_version2.model.Teacher;
 import exercise_haitutor.mvclist_version2.service.ITeacherService;
 import exercise_haitutor.mvclist_version2.util.IOFileUtil;
-import exercise_haitutor.mvclist_version2.util.InputBirthDayUtil;
+import exercise_haitutor.mvclist_version2.util.InputDayUtil;
 import exercise_haitutor.mvclist_version2.util.InputNameUtil;
 import exercise_haitutor.mvclist_version2.util.InputUtil;
 
@@ -29,7 +29,7 @@ public class TeacherService implements ITeacherService {
             }
 
         }
-        String dateOfBirth = InputBirthDayUtil.getBirthDay("Nhập ngày sinh: ");
+        String dateOfBirth = InputDayUtil.getBirthDay("Nhập ngày sinh: ");
 
         System.out.print("Nhập Giới tính: ");
         String sex = sc.nextLine();

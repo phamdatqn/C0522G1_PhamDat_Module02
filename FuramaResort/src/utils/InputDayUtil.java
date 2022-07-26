@@ -1,10 +1,10 @@
-package exercise_haitutor.mvclist_version2.util;
+package utils;
 
-import exercise_haitutor.mvclist_version2.exception.DateOfDatPhamException;
+import exception.DateBirthDayInputException;
 
 import java.util.Scanner;
 
-public class InputBirthDayUtil {
+public class InputDayUtil {
     private static final String CLASS_REGEX = "[\\d]{2}[/](0[1-9]|1[0-2])[/](19|20)[\\d]{2}";
 
     public static String getBirthDay(String str) {
@@ -25,28 +25,28 @@ public class InputBirthDayUtil {
                     switch (month) {
                         case 2:
                             if (checkYear(year) && day > 29) {
-                                throw new DateOfDatPhamException("LỖI: Năm " + year + " tháng 02 chỉ có tối đa 29 ngày!");
+                                throw new DateBirthDayInputException("LỖI: Năm " + year + " tháng 02 chỉ có tối đa 29 ngày!");
                             }
                             if (!checkYear(year) && day > 28) {
-                                throw new DateOfDatPhamException("LỖI: Năm " + year + " tháng 02 chỉ có tối đa 28 ngày!");
+                                throw new DateBirthDayInputException("LỖI: Năm " + year + " tháng 02 chỉ có tối đa 28 ngày!");
                             }
                         case 4:
                         case 6:
                         case 9:
                         case 11:
                             if (day > 30) {
-                                throw new DateOfDatPhamException("ERR: Tháng " + month + " không được vượt quá 30 ngày!");
+                                throw new DateBirthDayInputException("ERR: Tháng " + month + " không được vượt quá 30 ngày!");
                             }
                         default:
                             if (day > 31) {
-                                throw new DateOfDatPhamException("ERR: Tháng " + month + " không được vượt quá 31 ngày!");
+                                throw new DateBirthDayInputException("ERR: Tháng " + month + " không được vượt quá 31 ngày!");
                             }
                     }
                     break;
                 } else {
-                    throw new DateOfDatPhamException("ERR: Nhập sai định dạng phải nhập: dd/mm/yyyy");
+                    throw new DateBirthDayInputException("ERR: Nhập sai định dạng phải nhập: dd/mm/yyyy");
                 }
-            } catch (DateOfDatPhamException e) {
+            } catch (DateBirthDayInputException e) {
                 System.err.println(e.getMessage());
             }
         }

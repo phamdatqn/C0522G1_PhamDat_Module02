@@ -1,11 +1,12 @@
 package controllers;
 
+import exercise_haitutor.mvclist_version2.exception.InputNameException;
 import services.IEmployeeService;
 import services.impl.EmployeeService;
 
 import java.util.Scanner;
 
-public class EmployeeManagementController {
+public class EmployeeController {
     private Scanner scanner = new Scanner(System.in);
     private IEmployeeService iEmployeeService = new EmployeeService();
 
@@ -22,7 +23,11 @@ public class EmployeeManagementController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
-                    iEmployeeService.add();
+                    try {
+                        iEmployeeService.add();
+                    } catch (InputNameException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case 2:
                     iEmployeeService.remove();

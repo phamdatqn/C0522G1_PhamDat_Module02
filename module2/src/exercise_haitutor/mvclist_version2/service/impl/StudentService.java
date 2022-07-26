@@ -5,7 +5,7 @@ import exercise_haitutor.mvclist_version2.exception.InputNameException;
 import exercise_haitutor.mvclist_version2.model.Student;
 import exercise_haitutor.mvclist_version2.service.IStudentService;
 import exercise_haitutor.mvclist_version2.util.IOFileUtil;
-import exercise_haitutor.mvclist_version2.util.InputBirthDayUtil;
+import exercise_haitutor.mvclist_version2.util.InputDayUtil;
 import exercise_haitutor.mvclist_version2.util.InputNameUtil;
 import exercise_haitutor.mvclist_version2.util.InputUtil;
 
@@ -21,17 +21,16 @@ public class StudentService implements IStudentService {
         String name;
         while (true) {
             try {
-                System.out.print("Nhập họ và tên Học Viên: ");
-                name = InputNameUtil.getNameUtil(sc.nextLine());
+                name=InputUtil.getString("Nhập tên học sinh mới: ");
+                name = InputNameUtil.getNameUtil(name);
                 break;
-
             } catch (InputNameException e) {
                 System.err.println(e.getMessage());
             }
 
         }
 
-        String dateOfBirth = InputBirthDayUtil.getBirthDay("Nhập ngày sinh: ");
+        String dateOfBirth = InputDayUtil.getBirthDay("Nhập ngày sinh: ");
 
         System.out.print("Nhập giới tính: ");
         String sex = sc.nextLine();
@@ -56,7 +55,6 @@ public class StudentService implements IStudentService {
 
     @Override
     public void add() throws IOException, DuplicateIDException {
-
         Student student;
         int id;
         studentList = IOFileUtil.readStudentFile(IOFileUtil.PATH_STUDENT);

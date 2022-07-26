@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class FuramaController {
     public static void main() {
-        EmployeeManagementController employeeManagementController = new EmployeeManagementController();
+        EmployeeController employeeManagementController = new EmployeeController();
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("========== PHẦN MỀM QUẢN LÝ FURAMA RESORT ==========" +

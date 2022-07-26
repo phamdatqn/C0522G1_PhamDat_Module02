@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class InputUtil {
     static Scanner scanner = new Scanner(System.in);
 
-    public static String getString(String str) {
-        System.out.println(str);
+    public static String getString(String target) {
+        System.out.println(target);
         return scanner.nextLine();
     }
 
@@ -18,7 +18,8 @@ public class InputUtil {
                 tryD = Double.parseDouble(scanner.nextLine());
                 break;
             } catch (NumberFormatException e) {
-                System.err.println("Nhập sai, Không được nhập chữ");
+                System.err.println("Nhập sai, Không được nhập chữ!!!");
+                System.out.println(e.getMessage());
             }
         }
         return tryD;
