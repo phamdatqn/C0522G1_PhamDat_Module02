@@ -8,10 +8,9 @@ public class Teacher extends Person {
     }
 
     public Teacher(int id, String name, String dateOfBirth, String sex, String specialize) {
-        super(id, name, dateOfBirth,sex);
+        super(id, name, dateOfBirth, sex);
         this.specialize = specialize;
     }
-
 
 
     public String getSpecialize() {
@@ -24,10 +23,10 @@ public class Teacher extends Person {
 
     @Override
     public String toString() {
-        return  super.toString()+", Chuyên môn: " + specialize ;
+        return super.toString() + ", Chuyên môn: " + specialize;
     }
 
-    public String getInfo(){
-        return String.format("%s,%s,%s,%s,%s",getId(),getName(),getDateOfBirth(),getSex(),getSpecialize());
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s", getId(), getName(), getDateOfBirth(), getSex(), getSpecialize());
     }
 }

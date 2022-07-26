@@ -18,7 +18,7 @@ public class StudentService implements IStudentService {
 
     public static Student infoStudent(int id) {
         double point;
-        String name ;
+        String name;
         while (true) {
             try {
                 System.out.print("Nhập họ và tên Học Viên: ");
@@ -49,7 +49,7 @@ public class StudentService implements IStudentService {
         System.out.print("Nhập vào lớp: ");
         String grade = sc.nextLine();
 
-        return new Student(id,name, dateOfBirth, sex, point, grade);
+        return new Student(id, name, dateOfBirth, sex, point, grade);
 
     }
 
@@ -61,11 +61,11 @@ public class StudentService implements IStudentService {
         int id;
         studentList = IOFileUtil.readStudentFile(IOFileUtil.PATH_STUDENT);
 
-        while (true){
+        while (true) {
             try {
-                 id = InputUtil.getInt("Nhập id: ");
+                id = InputUtil.getInt("Nhập id: ");
                 for (Student item : studentList) {
-                    if (item.getId()==id) {
+                    if (item.getId() == id) {
                         throw new DuplicateIDException("Mã nhân viên đã tồn tại!");
                     }
                 }

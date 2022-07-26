@@ -1,7 +1,6 @@
 package exercise_haitutor.mvclist_version2.service;
 
 import exercise_haitutor.mvclist_version2.exception.DuplicateIDException;
-import exercise_haitutor.mvclist_version2.model.Student;
 
 import java.io.IOException;
 
@@ -10,9 +9,9 @@ public interface IStudentService {
 
     void displayAllStudent();
 
-    void remove() ;
+    void remove();
 
-   void findID();
+    void findID();
 
     void findName();
 

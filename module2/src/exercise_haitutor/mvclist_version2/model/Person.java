@@ -53,9 +53,9 @@ public abstract class Person {
     public String toString() {
         return
                 "Id: " + id +
-                ", Tên: " + name  +
-                ", Năm Sinh: " + dateOfBirth  +
-                ", Giới Tính: " + sex ;
+                        ", Tên: " + name +
+                        ", Năm Sinh: " + dateOfBirth +
+                        ", Giới Tính: " + sex;
     }
 
 }

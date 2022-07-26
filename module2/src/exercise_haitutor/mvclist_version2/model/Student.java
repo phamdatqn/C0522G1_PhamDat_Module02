@@ -12,7 +12,7 @@ public class Student extends Person {
         this.grade = grade;
     }
 
-    public Student(int id, String name, String dateOfBirth, String sex,double point, String grade) {
+    public Student(int id, String name, String dateOfBirth, String sex, double point, String grade) {
         super(id, name, dateOfBirth, sex);
         this.point = point;
         this.grade = grade;
@@ -36,11 +36,12 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return  super.toString()+
+        return super.toString() +
                 ", Điểm: " + point +
-                ", Lớp: " + grade ;
+                ", Lớp: " + grade;
     }
-    public String getInfo(){
-        return String.format("%s,%s,%s,%s,%s,%s",getId(),getName(),getDateOfBirth(),getSex(),getPoint(),getGrade());
+
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s", getId(), getName(), getDateOfBirth(), getSex(), getPoint(), getGrade());
     }
 }

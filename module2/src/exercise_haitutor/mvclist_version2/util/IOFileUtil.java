@@ -11,6 +11,7 @@ import java.util.List;
 public class IOFileUtil {
     public static String PATH_STUDENT = "module2/src/exercise_haitutor/mvclist_version2/data/studentList.txt";
     public static String PATH_TEACHER = "module2/src/exercise_haitutor/mvclist_version2/data/teacherList.txt";
+
     private static List<String> readFile(String path) {
         List<String> stringsRead = new ArrayList<>();
         try {
@@ -47,12 +48,12 @@ public class IOFileUtil {
         for (String item : data) {
             arrProperty = item.split(",");
             studentList.add(new Student(Integer.parseInt(arrProperty[0]), arrProperty[1],
-                    arrProperty[2], arrProperty[3], Double.parseDouble(arrProperty[4]),arrProperty[5]));
+                    arrProperty[2], arrProperty[3], Double.parseDouble(arrProperty[4]), arrProperty[5]));
         }
         return studentList;
     }
 
-    public static void writeStudentFile(String path, List<Student> students)  {
+    public static void writeStudentFile(String path, List<Student> students) {
         StringBuilder data = new StringBuilder();
         for (Student student : students) {
             data.append(student.getInfo()).append("\n");
