@@ -8,12 +8,13 @@ import java.util.List;
 
 public class IOCustomerUtil extends IOFileUtil {
     public static String PATH_CUSTOMER = "FuramaResort/src/data/customers.csv";
+
     public static List<Customer> readCustomer(String path) {
         List<String> data = readFile(path);
         List<Customer> customersData = new ArrayList<>();
         String[] arrProperty;
         for (String item : data) {
-            item=item.replaceAll(",",".");
+            item = item.replaceAll(",", ".");
             arrProperty = item.split("\\$\\$");
             customersData.add(new Customer(arrProperty[0], arrProperty[1], arrProperty[2], arrProperty[3]
                     , arrProperty[4], arrProperty[5], arrProperty[6], arrProperty[7], arrProperty[8]));
@@ -34,6 +35,5 @@ public class IOCustomerUtil extends IOFileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

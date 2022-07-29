@@ -20,6 +20,7 @@ public class RoomController {
                     "5. Search ID Room\n" +
                     "6. Search name Room\n" +
                     "7. Back to facility.\n");
+
             int choose = InputUtil.getInt("Please enter your selection: ");
             switch (choose) {
                 case 1:

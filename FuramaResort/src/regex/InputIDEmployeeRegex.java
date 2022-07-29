@@ -1,6 +1,5 @@
 package regex;
 
-import exception.InputIDCardException;
 import exception.InputIDEmloyeeException;
 
 public class InputIDEmployeeRegex {

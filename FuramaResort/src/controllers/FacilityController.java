@@ -27,7 +27,7 @@ public class FacilityController {
                     iFacilityService.displayAll();
                     break;
                 case 3:
-
+                    System.out.println("Chức năng đang bảo trì");
                     break;
                 case 4:
                     return;

@@ -15,7 +15,7 @@ public class IOVillaUtil extends IOFileUtil {
         Map<Villa, Integer> villaIntegerMap = new LinkedHashMap();
         String[] arrProperty;
         for (String item : data) {
-            item=item.replaceAll(",",".");
+            item = item.replaceAll(",", ".");
             arrProperty = item.split("\\$\\$");
             villaIntegerMap.put(new Villa(arrProperty[0], arrProperty[1], Double.parseDouble(arrProperty[2]),
                     Double.parseDouble(arrProperty[3]), Integer.parseInt(arrProperty[4]),
@@ -40,6 +40,5 @@ public class IOVillaUtil extends IOFileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -51,10 +51,10 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return String.format("\n************ EMPLOYEE ************" +
-                        "\nMã nhân viên: %s%s" +
-                        "\nChức vụ: %s" +
-                        "\nBằng cấp: %s" +
-                        "\nLương: %.2f VNĐ", idEmployee, super.toString(), getPosition(), degree, getSalary());
+                "\nMã nhân viên: %s%s" +
+                "\nChức vụ: %s" +
+                "\nBằng cấp: %s" +
+                "\nLương: %.2f VNĐ", idEmployee, super.toString(), getPosition(), degree, getSalary());
     }
 
     @Override

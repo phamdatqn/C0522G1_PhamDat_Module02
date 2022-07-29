@@ -20,6 +20,7 @@ public class CustomerController {
                     "5. Search ID customers\n" +
                     "6. Search name customers\n" +
                     "7. Return main menu.\n");
+
             int choose = InputUtil.getInt("Please enter your selection:  ");
             switch (choose) {
                 case 1:

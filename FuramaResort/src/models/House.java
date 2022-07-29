@@ -1,9 +1,8 @@
 package models;
 
-public class House extends Facility{
+public class House extends Facility {
     private String roomStandard;
     private int numberFloors;
-
 
 
     public House() {
@@ -35,14 +34,14 @@ public class House extends Facility{
     @Override
     public String toString() {
         return "\n************** HOUSE **************" +
-                super.toString()+
+                super.toString() +
                 "\nTiêu chuẩn phòng: " + roomStandard +
-                "\nSố tầng: " + numberFloors +" tầng";
+                "\nSố tầng: " + numberFloors + " tầng";
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s$$%s$$%.2f$$%.2f$$%d$$%s$$%s$$%d",getIdFacility(),getNameFacility(), getUseArea(),
-                getRentalCosts(), getMaxPeople(),getTypeRental(),roomStandard, numberFloors);
+        return String.format("%s$$%s$$%.2f$$%.2f$$%d$$%s$$%s$$%d", getIdFacility(), getNameFacility(), getUseArea(),
+                getRentalCosts(), getMaxPeople(), getTypeRental(), roomStandard, numberFloors);
     }
 }

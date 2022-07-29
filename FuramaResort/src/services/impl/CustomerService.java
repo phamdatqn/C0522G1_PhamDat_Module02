@@ -4,7 +4,9 @@ import exception.*;
 import models.Customer;
 import regex.*;
 import services.ICustomerService;
-import utils.*;
+import utils.IOCustomerUtil;
+import utils.InputPersonUtil;
+import utils.InputUtil;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.List;
 public class CustomerService implements ICustomerService {
     List<Customer> customerList = new LinkedList<>();
 
-    private  Customer infoCustomer(String idCustomer) {
+    private Customer infoCustomer(String idCustomer) {
 
         String name;
         while (true) {
@@ -195,7 +197,7 @@ public class CustomerService implements ICustomerService {
 
                 customerList.get(i).setCustomerType(InputPersonUtil.inputTypeCustomerUtil());
                 IOCustomerUtil.writeCustomer(IOCustomerUtil.PATH_CUSTOMER, customerList);
-                System.out.println("Cập nhập thành công khách hàng có mã: "+idFind);
+                System.out.println("Cập nhập thành công khách hàng có mã: " + idFind);
                 flag = true;
                 customerList.clear();
             }
@@ -209,16 +211,16 @@ public class CustomerService implements ICustomerService {
     public void findID() {
         customerList = IOCustomerUtil.readCustomer(IOCustomerUtil.PATH_CUSTOMER);
         String idFind = InputUtil.getString("Mời bạn nhập mã khách hàng cần tìm:");
-        idFind=idFind.toUpperCase();
-        boolean iFlag=false;
+        idFind = idFind.toUpperCase();
+        boolean iFlag = false;
         for (Customer customer : customerList) {
             if (customer.getIdCustomer().equals(idFind)) {
                 System.out.println("tìm thấy thông tin khách hàng có mã : " + idFind);
                 System.out.println(customer);
-                iFlag=true;
+                iFlag = true;
             }
         }
-        if (!iFlag){
+        if (!iFlag) {
             System.out.println("Không tìm thấy thông tin: " + idFind);
         }
 

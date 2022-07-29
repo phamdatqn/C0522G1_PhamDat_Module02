@@ -1,6 +1,5 @@
 package utils;
 
-import models.Customer;
 import models.House;
 
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class IOHouseUtil extends IOFileUtil {
         Map<House, Integer> housesData = new LinkedHashMap();
         String[] arrProperty;
         for (String item : data) {
-            item=item.replaceAll(",",".");
+            item = item.replaceAll(",", ".");
             arrProperty = item.split("\\$\\$");
             housesData.put(new House(arrProperty[0], arrProperty[1], Double.parseDouble(arrProperty[2]),
                     Double.parseDouble(arrProperty[3]), Integer.parseInt(arrProperty[4]),
@@ -25,7 +24,7 @@ public class IOHouseUtil extends IOFileUtil {
         return housesData;
     }
 
-    public static void writeHouse(String path, Map<House,Integer> houseIntegerMap) {
+    public static void writeHouse(String path, Map<House, Integer> houseIntegerMap) {
         StringBuilder data = new StringBuilder();
         data.append("1:Mã dịch vụ - 2: Tên dịch vụ - 3:Diện tích sử dụng - 4:Chi phí thuê - 5:Số lượng người tối đa - 6:Loại cho thuê - 7:Tiêu chuẩn phòng - 8: Số tầng- 9:booking\n");
         for (House house : houseIntegerMap.keySet()) {
@@ -38,6 +37,5 @@ public class IOHouseUtil extends IOFileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

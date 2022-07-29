@@ -20,6 +20,7 @@ public class VillaController {
                     "5. Search ID Villa\n" +
                     "6. Search name Villa\n" +
                     "7. Back to facility.\n");
+
             int choose = InputUtil.getInt("Please enter your selection: ");
             switch (choose) {
                 case 1:

@@ -34,13 +34,13 @@ public class FuramaController {
                     break;
                 }
                 case 4: {
-
+                    System.out.println("Chức năng đang bảo trì");
                     break;
                 }
                 case 5: {
+                    System.out.println("Chức năng đang bảo trì");
                     break;
                 }
-
                 case 6: {
                     System.out.println("Bạn đã thoát khỏi chương trình!");
                     System.exit(1);

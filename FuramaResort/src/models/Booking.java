@@ -77,11 +77,11 @@ public class Booking {
                 "\nNgày kết thúc: " + endDay +
                 "\nMã khách hàng: " + idCustomer +
                 "\nTên dịch vụ: " + nameService +
-                "\nLoại dịch vụ: " + typeService ;
+                "\nLoại dịch vụ: " + typeService;
     }
 
-    public String getInfo(){
-        return String.format("%s,%s,%s,%s,%s,%s",idBooking,startDay, endDay, idCustomer,
-                 nameService, typeService);
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s", idBooking, startDay, endDay, idCustomer,
+                nameService, typeService);
     }
 }

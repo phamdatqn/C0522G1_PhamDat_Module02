@@ -1,7 +1,6 @@
 package utils;
 
 public class InputPersonUtil {
-
     public static String inputDegreeUtil() {
         final String[] DEGREE = {"", "Trung học", "Cao đẳng", "Đại học", "Sau Đại học"};
         int choice;
@@ -19,7 +18,6 @@ public class InputPersonUtil {
         return DEGREE[choice];
     }
 
-
     public static String inputGenderUtil() {
         final String[] GENDER = {"", "Nam", "Nữ", "Khác"};
         int choice;
@@ -36,10 +34,8 @@ public class InputPersonUtil {
         return GENDER[choice];
     }
 
-
-
     public static String inputPositionUtil() {
-        final String[] DEGREE = {"", "Lễ tân", "Phục vụ", "Chuyên viên", "Giám sát", "Quản lý","Giám đốc"};
+        final String[] DEGREE = {"", "Lễ tân", "Phục vụ", "Chuyên viên", "Giám sát", "Quản lý", "Giám đốc"};
         int choice;
         do {
             //Lễ tân, phục vụ, chuyên viên, giám sát, quản lý, giám đốc.
@@ -48,7 +44,7 @@ public class InputPersonUtil {
                     "\n2. Phục vụ" +
                     "\n3. Chuyên viên" +
                     "\n4. Giám sát" +
-                    "\n5. Quản lý"+
+                    "\n5. Quản lý" +
                     "\n6. Giám đốc");
             choice = InputUtil.getInt("Mời chọn: ");
             if (choice < 1 || choice > 6) {
@@ -58,10 +54,8 @@ public class InputPersonUtil {
         return DEGREE[choice];
     }
 
-
-
     public static String inputTypeCustomerUtil() {
-        final String[] DEGREE = {"", "Diamond", "Platinium", "Gold", "Silver","Member"};
+        final String[] DEGREE = {"", "Diamond", "Platinium", "Gold", "Silver", "Member"};
         int choice;
         do {
             System.out.println("Mời loại Khách Hàng: " +

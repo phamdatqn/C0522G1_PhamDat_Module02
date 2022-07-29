@@ -80,15 +80,16 @@ public abstract class Person {
     }
 
     public abstract String getInfo();
+
     @Override
     public String toString() {
         return
-                "\nTên: "+ name +
-                "\nSinh ngày: " + birthday +
-                "\nGiới tính: " + gender +
-                "\nCMND: " + idCard +
-                "\nSố điện thoại: " + numberPhone +
-                "\nEmail: " + email +
-                "\nĐịa chỉ: " + address ;
+                "\nTên: " + name +
+                        "\nSinh ngày: " + birthday +
+                        "\nGiới tính: " + gender +
+                        "\nCMND: " + idCard +
+                        "\nSố điện thoại: " + numberPhone +
+                        "\nEmail: " + email +
+                        "\nĐịa chỉ: " + address;
     }
 }

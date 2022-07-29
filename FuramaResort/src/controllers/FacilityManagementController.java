@@ -16,6 +16,7 @@ public class FacilityManagementController {
                     "2. Room Management\n" +
                     "3. Villa Management\n" +
                     "4. Back to facility.\n");
+
             int choose = InputUtil.getInt("Please enter your selection: ");
             switch (choose) {
                 case 1:

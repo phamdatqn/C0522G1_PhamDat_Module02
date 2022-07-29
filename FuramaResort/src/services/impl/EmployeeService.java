@@ -4,7 +4,9 @@ import exception.*;
 import models.Employee;
 import regex.*;
 import services.IEmployeeService;
-import utils.*;
+import utils.IOEmployeeUtil;
+import utils.InputPersonUtil;
+import utils.InputUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +140,7 @@ public class EmployeeService implements IEmployeeService {
         boolean flag = false;
         employeeList = IOEmployeeUtil.readEmployee(IOEmployeeUtil.PATH_EMPLOYEE);
         String idFind = InputUtil.getString("Mời bạn nhập mã nhân viên cần sửa:");
-        idFind=idFind.toUpperCase();
+        idFind = idFind.toUpperCase();
         for (int i = 0; i < employeeList.size(); i++) {
             if (employeeList.get(i).getIdEmployee().equals(idFind)) {
                 System.out.println("\nThông tin nhân viên đang sửa là:\n" + employeeList.get(i));

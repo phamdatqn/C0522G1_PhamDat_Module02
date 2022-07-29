@@ -61,21 +61,19 @@ public class InputFacilityUtil {
         return tryMaxPeople;
     }
 
-    public static String getIdFacility(String target){
+    public static String getIdFacility(String target) {
         String idFacility;
-        while (true){
+        while (true) {
             try {
-                idFacility=InputUtil.getString(target);
-                idFacility= InputIDHouseRegex.getIdHouseRegex(idFacility);
+                idFacility = InputUtil.getString(target);
+                idFacility = InputIDHouseRegex.getIdHouseRegex(idFacility);
                 break;
-            }catch (InputIDHouseException e){
+            } catch (InputIDHouseException e) {
                 System.out.println("House có mã quy tắc là SVHO-4 mã số: ");
             }
         }
         return idFacility;
     }
-
-
 
     public static String inputRoomStandardUtil() {
         final String[] DEGREE = {"", "Normal", "Pro", "Vip"};
@@ -111,7 +109,7 @@ public class InputFacilityUtil {
     }
 
     public static String inputTypeRentalUtil() {
-         final String[] DEGREE = {"", "Theo giờ", "Theo ngày", "Theo tháng", "Theo năm"};
+        final String[] DEGREE = {"", "Theo giờ", "Theo ngày", "Theo tháng", "Theo năm"};
         int choice;
         do {
             System.out.println("Mời chọn loại cho thuê: " +
@@ -127,7 +125,7 @@ public class InputFacilityUtil {
         return DEGREE[choice];
     }
 
-    public static String getNameFacility( ) {
+    public static String getNameFacility() {
         String nameFacility;
         while (true) {
             try {

@@ -1,7 +1,6 @@
 package regex;
 
 import exception.InputIDCustomerException;
-import exception.InputIDEmloyeeException;
 
 public class InputIDCustomerRegex {
     private static final String IDCUSTOMER_REGEX = "^[E][\\d]{4}$";

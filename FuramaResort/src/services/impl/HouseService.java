@@ -2,7 +2,6 @@ package services.impl;
 
 import exception.InputIDHouseException;
 import exception.InputNameFacilityException;
-import exception.InputNumberFloorsException;
 import models.House;
 import regex.InputIDHouseRegex;
 import regex.InputNameFacilityRegex;
@@ -34,8 +33,6 @@ public class HouseService implements IHouseService {
 
         return new House(idHouse, nameHouse, useArea, rentalCosts, maxPeople, typeRental, roomStandard, numberFloors);
     }
-
-
 
 
     @Override

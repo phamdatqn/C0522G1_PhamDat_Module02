@@ -45,15 +45,15 @@ public class Villa extends Facility {
     @Override
     public String toString() {
         return "\n************ VILLA ************" +
-                super.toString()+
+                super.toString() +
                 "\nTiêu chuẩn phòng: " + roomStandard +
-                "\nSố tầng: " + numberFloors+ " tầng."+
-                "\nDiện tích hồ bơi : " + swimmingPoolArea +" mét vuông.";
+                "\nSố tầng: " + numberFloors + " tầng." +
+                "\nDiện tích hồ bơi : " + swimmingPoolArea + " mét vuông.";
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s$$%s$$%.2f$$%.2f$$%d$$%s$$%s$$%d$$%.2f",getIdFacility(),getNameFacility(), getUseArea(), getRentalCosts(), getMaxPeople(),
-       getTypeRental(), roomStandard, getNumberFloors(), getSwimmingPoolArea());
+        return String.format("%s$$%s$$%.2f$$%.2f$$%d$$%s$$%s$$%d$$%.2f", getIdFacility(), getNameFacility(), getUseArea(), getRentalCosts(), getMaxPeople(),
+                getTypeRental(), roomStandard, getNumberFloors(), getSwimmingPoolArea());
     }
 }

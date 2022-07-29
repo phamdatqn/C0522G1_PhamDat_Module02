@@ -13,7 +13,7 @@ public class FacilityService implements IFacilityService {
     public void add() {
         VillaService villaService = new VillaService();
         HouseService houseService = new HouseService();
-       RoomService roomService =new RoomService();
+        RoomService roomService = new RoomService();
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("========== MENU ADD FACILITY ==========" +
@@ -21,6 +21,7 @@ public class FacilityService implements IFacilityService {
                     "\n2. Add New House" +
                     "\n3. Add New Room" +
                     "\n4. Back to menu\n");
+
             int choose = InputUtil.getInt("Please enter your selection: ");
             switch (choose) {
                 case 1: {

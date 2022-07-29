@@ -1,7 +1,7 @@
 package models;
 
-public class Room extends Facility{
-   public String freeService;
+public class Room extends Facility {
+    public String freeService;
 
     public Room() {
     }
@@ -23,12 +23,12 @@ public class Room extends Facility{
     @Override
     public String toString() {
         return "\n*************** ROOM ***************" +
-                 super.toString()+
+                super.toString() +
                 "\nDịch vụ miễn phí đi kèm: " + freeService;
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s$$%s$$%.2f$$%.2f$$%d$$%s$$%s",getIdFacility(),getNameFacility(), getUseArea(), getRentalCosts(), getMaxPeople(),getTypeRental(), freeService);
+        return String.format("%s$$%s$$%.2f$$%.2f$$%d$$%s$$%s", getIdFacility(), getNameFacility(), getUseArea(), getRentalCosts(), getMaxPeople(), getTypeRental(), freeService);
     }
 }

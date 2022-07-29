@@ -19,6 +19,7 @@ public class EmployeeController {
                     "5. Search ID employee\n" +
                     "6. Search name employee\n" +
                     "7. Return main menu.\n");
+
             int choose = InputUtil.getInt("Please enter your selection:   ");
             switch (choose) {
                 case 1:

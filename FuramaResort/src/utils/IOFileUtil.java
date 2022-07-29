@@ -9,7 +9,6 @@ public abstract class IOFileUtil {
     public static List<String> readFile(String path) {
         List<String> stringsRead = new ArrayList<>();
         try {
-
             File file = new File(path);
             if (!file.exists()) {
                 throw new FileNotFoundException();

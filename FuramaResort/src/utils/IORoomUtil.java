@@ -15,7 +15,7 @@ public class IORoomUtil extends IOFileUtil {
         Map<Room, Integer> roomIntegerMap = new LinkedHashMap();
         String[] arrProperty;
         for (String item : data) {
-            item=item.replaceAll(",",".");
+            item = item.replaceAll(",", ".");
             arrProperty = item.split("\\$\\$");
             roomIntegerMap.put(new Room(arrProperty[0], arrProperty[1], Double.parseDouble(arrProperty[2]),
                     Double.parseDouble(arrProperty[3]), Integer.parseInt(arrProperty[4]),
@@ -37,6 +37,5 @@ public class IORoomUtil extends IOFileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

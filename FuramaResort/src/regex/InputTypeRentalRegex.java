@@ -1,6 +1,5 @@
 package regex;
 
-import exception.InputNameException;
 import exception.InputTypeRentalException;
 
 public class InputTypeRentalRegex {
@@ -9,7 +8,7 @@ public class InputTypeRentalRegex {
     public static String getTypeRentalRegex(String target) throws InputTypeRentalException {
         if (target.matches(TYPE_RENTAL_REGEX)) {
             target = target.toLowerCase().trim();
-            target=target.substring(0,1).toUpperCase()+target.substring(1);
+            target = target.substring(0, 1).toUpperCase() + target.substring(1);
         } else {
             throw new InputTypeRentalException("LỖI: chỉ được nhập theo tháng/ngày/giờ, mời nhập lại!!!");
         }
