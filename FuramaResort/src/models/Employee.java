@@ -54,14 +54,12 @@ public class Employee extends Person {
                         "\nMã nhân viên: %s%s" +
                         "\nChức vụ: %s" +
                         "\nBằng cấp: %s" +
-                        "\nLương: %12.2f VNĐ",
-
-                idEmployee, super.toString(), getPosition(), degree, getSalary());
+                        "\nLương: %.2f VNĐ", idEmployee, super.toString(), getPosition(), degree, getSalary());
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%12.2f,", getName(), getBirthday(), getGender(), getIdCard(),
+        return String.format("%s$$%s$$%s$$%s$$%s$$%s$$%s$$%s$$%s$$%s$$%.2f", getName(), getBirthday(), getGender(), getIdCard(),
                 getNumberPhone(), getEmail(), getAddress(), idEmployee, degree, position, salary);
     }
 }

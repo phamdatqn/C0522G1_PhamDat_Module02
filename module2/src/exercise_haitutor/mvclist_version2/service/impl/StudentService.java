@@ -102,7 +102,6 @@ public class StudentService implements IStudentService {
                 int chooseYesNo = Integer.parseInt(sc.nextLine());
                 if (chooseYesNo == 1) {
                     studentList.remove(i);
-
                     IOFileUtil.writeStudentFile(IOFileUtil.PATH_STUDENT, studentList);
                     System.out.println("đã xóa id " + idRemove + " thành công!");
                 }

@@ -1,13 +1,15 @@
 package services;
 
-import exercise_haitutor.mvclist_version2.exception.InputNameException;
+import exception.InputEmailException;
+import exception.InputNameException;
+
 
 public interface IService<E> {
     void add() throws InputNameException;
 
     void remove();
 
-    void edit();
+    void edit() throws InputEmailException, InputNameException;
 
     void findID();
 

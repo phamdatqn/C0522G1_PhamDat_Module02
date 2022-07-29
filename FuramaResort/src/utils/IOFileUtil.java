@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class IOFileUtil {
-    public static String PATH_EMPLOYEE = "FuramaResort/src/data/employee.csv";
-    public static String PATH_CUSTOMER = "FuramaResort/src/data/customers.csv";
 
     public static List<String> readFile(String path) {
         List<String> stringsRead = new ArrayList<>();
@@ -23,7 +21,7 @@ public abstract class IOFileUtil {
                 stringsRead.add(line);
             }
             br.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.err.println("Fie không tồn tại or nội dung có lỗi!");
         }
         return stringsRead;

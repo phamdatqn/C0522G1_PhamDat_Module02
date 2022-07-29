@@ -1,6 +1,7 @@
 package models;
 
 public abstract class Facility {
+    private String idFacility;
     private String nameFacility;
     private double useArea;
     private double rentalCosts;
@@ -10,12 +11,22 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String nameFacility, double useArea, double rentalCosts, int maxPeople, String typeRental) {
+    public Facility(String idFacility, String nameFacility, double useArea,
+                    double rentalCosts, int maxPeople, String typeRental) {
+        this.idFacility = idFacility;
         this.nameFacility = nameFacility;
         this.useArea = useArea;
         this.rentalCosts = rentalCosts;
         this.maxPeople = maxPeople;
         this.typeRental = typeRental;
+    }
+
+    public String getIdFacility() {
+        return idFacility;
+    }
+
+    public void setIdFacility(String idFacility) {
+        this.idFacility = idFacility;
     }
 
     public String getNameFacility() {
@@ -30,7 +41,7 @@ public abstract class Facility {
         return useArea;
     }
 
-    public void setUseArea(int useArea) {
+    public void setUseArea(double useArea) {
         this.useArea = useArea;
     }
 
@@ -60,12 +71,12 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "\n************ FACILITY ************" +
-                "\nLoại cơ sở: " + nameFacility +
-                "\nDiện tích sử dụng: " + useArea +
-                "\nPhí thuê: " + rentalCosts +
-                "\nSố lượng người: " + maxPeople +
-                "\nLoại thuê:" + typeRental;
+        return "\nMã dịch vụ: "+idFacility+
+                "\nTên dịch vụ: " + nameFacility +
+                "\nDiện tích sử dụng : " + useArea + " mét vuông."+
+                "\nPhí thuê: " + rentalCosts + " VNĐ"+
+                "\nSố lượng tối đa: " + maxPeople + " người"+
+                "\nLoại thuê: " + typeRental;
     }
 
     public abstract String getInfo();

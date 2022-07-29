@@ -1,5 +1,7 @@
 package services.impl;
 
+import exception.InputEmailException;
+import exception.InputNameException;
 import services.IContactService;
 
 public class ContactService implements IContactService {
@@ -15,7 +17,7 @@ public class ContactService implements IContactService {
     }
 
     @Override
-    public void edit() {
+    public void edit() throws InputEmailException, InputNameException {
 
     }
 

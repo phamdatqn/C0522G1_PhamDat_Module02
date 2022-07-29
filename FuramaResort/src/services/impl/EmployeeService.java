@@ -1,45 +1,37 @@
 package services.impl;
 
-import exception.DuplicateIDException;
-import exception.InputEmailException;
-import exception.InputNameException;
-import exception.InputNumberPhoneException;
+import exception.*;
 import models.Employee;
-import regex.InputRegexEmailUtil;
-import regex.InputRegexNameUtil;
-import regex.InputRegexPhoneNumber;
+import regex.*;
 import services.IEmployeeService;
 import utils.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class EmployeeService implements IEmployeeService {
     List<Employee> employeeList = new ArrayList<>();
 
-    public static Employee infoEmployee(String idEmployee) {
+    private Employee infoEmployee(String idEmployee, String idCard) {
 
         String name;
         while (true) {
             try {
-                name = InputRegexNameUtil.getNameUtil(InputUtil.getString("Nhập họ và tên: "));
+                name = InputNameRegex.getNameUtil(InputUtil.getString("Nhập họ và tên nhân viên: "));
                 break;
             } catch (InputNameException e) {
                 e.printStackTrace();
             }
         }
 
-        String birthday = InputDayUtil.getBirthDay("Nhập Ngày Sinh: ");
+        String birthday = InputDayRegex.getBirthDay("Nhập ngày sinh nhân viên: ");
 
-        String gender = InputGenderUtil.inputGenderUtil();
-
-        String idCard = InputUtil.getString("Nhập CMND: ");
+        String gender = InputPersonUtil.inputGenderUtil();
 
         String numberPhone;
         while (true) {
             try {
-                numberPhone = InputRegexPhoneNumber.getNumberphoneRegex(InputUtil.getString("Nhập số điện thoại nhân viên: "));
+                numberPhone = InputPhoneNumberRegex.getNumberphoneRegex(InputUtil.getString("Nhập số điện thoại nhân viên: "));
                 break;
             } catch (InputNumberPhoneException e) {
                 e.printStackTrace();
@@ -49,22 +41,29 @@ public class EmployeeService implements IEmployeeService {
         String email;
         while (true) {
             try {
-                email = InputRegexEmailUtil.getEmail(InputUtil.getString("Nhập vào email nhân viên: "));
+                email = InputEmailRegex.getEmail(InputUtil.getString("Nhập vào email nhân viên: "));
                 break;
             } catch (InputEmailException e) {
                 e.printStackTrace();
-
             }
         }
 
-        String address = InputUtil.getString("Nhập địa chỉ: ");
+        String address;
+        while (true) {
+            try {
+                address = InputAddressRegex.getAddressRegex(InputUtil.getString("Nhập địa chỉ nhân viên: "));
+                break;
+            } catch (InputAddressException E) {
+                E.printStackTrace();
+            }
+        }
 
 
-        String degree = InputDegreeUtil.inputtDegreeUtil();
+        String degree = InputPersonUtil.inputDegreeUtil();
 
-        String position = InputPositionUtil.inputtPositionUtil();
+        String position = InputPersonUtil.inputPositionUtil();
 
-        double salary = InputUtil.getDouble("Nhập lương: ");
+        double salary = InputUtil.getDouble("Nhập lương nhân viên: ");
 
         return new Employee(name, birthday, gender, idCard, numberPhone,
                 email, address, idEmployee, degree, position, salary);
@@ -74,31 +73,45 @@ public class EmployeeService implements IEmployeeService {
     public void add() {
         Employee employee;
         String idEmployee;
-        employeeList = ReadWriteEmployeeUtil.readEmployee(IOFileUtil.PATH_EMPLOYEE);
+        String idCard;
+        employeeList = IOEmployeeUtil.readEmployee(IOEmployeeUtil.PATH_EMPLOYEE);
         while (true) {
             try {
-                idEmployee = InputUtil.getString("Nhập mã nhân viên mới:");
+                idEmployee = InputIDEmployeeRegex.getIdEmloyeeRegex(InputUtil.getString("Nhập mã nhân viên mới:"));
                 for (Employee item : employeeList) {
                     if (item.getIdEmployee().equals(idEmployee)) {
                         throw new DuplicateIDException("Mã nhân viên đã tồn tại!");
                     }
                 }
-                employee = infoEmployee(idEmployee);
-                employeeList.add(employee);
-                ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
-                System.out.println("Thêm mới thành công!\n");
                 break;
-            } catch (DuplicateIDException e) {
+            } catch (DuplicateIDException | InputIDEmloyeeException e) {
                 e.printStackTrace();
-
             }
         }
+
+        while (true) {
+            try {
+                idCard = InputIdCardRegex.getIdCardRegex(InputUtil.getString("Nhập CMND mới: "));
+                for (Employee item : employeeList) {
+                    if (item.getIdCard().equals(idCard)) {
+                        throw new InputIDCardException("Chứng minh nhân dân đã tồn tại!");
+                    }
+                }
+                break;
+            } catch (InputIDCardException e) {
+                e.printStackTrace();
+            }
+        }
+        employee = infoEmployee(idEmployee, idCard);
+        employeeList.add(employee);
+        IOEmployeeUtil.writeEmployee(IOEmployeeUtil.PATH_EMPLOYEE, employeeList);
+        System.out.println("Thêm mới thành công!\n");
 
     }
 
     @Override
     public void remove() {
-        employeeList = ReadWriteEmployeeUtil.readEmployee(IOFileUtil.PATH_EMPLOYEE);
+        employeeList = IOEmployeeUtil.readEmployee(IOEmployeeUtil.PATH_EMPLOYEE);
         String idRemove = InputUtil.getString("Mời bạn nhập mã nhân viên cần xóa:");
         boolean answer = false;
         for (int i = 0; i < employeeList.size(); i++) {
@@ -108,7 +121,7 @@ public class EmployeeService implements IEmployeeService {
                 if (chooseYesNo == 1) {
                     employeeList.remove(i);
 
-                    ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
+                    IOEmployeeUtil.writeEmployee(IOEmployeeUtil.PATH_EMPLOYEE, employeeList);
                     System.out.println("đã xóa mã nhân viên " + idRemove + " thành công!");
                 }
                 answer = true;
@@ -122,19 +135,30 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void edit() {
-        employeeList = ReadWriteEmployeeUtil.readEmployee(IOFileUtil.PATH_EMPLOYEE);
+        boolean flag = false;
+        employeeList = IOEmployeeUtil.readEmployee(IOEmployeeUtil.PATH_EMPLOYEE);
         String idFind = InputUtil.getString("Mời bạn nhập mã nhân viên cần sửa:");
+        idFind=idFind.toUpperCase();
         for (int i = 0; i < employeeList.size(); i++) {
             if (employeeList.get(i).getIdEmployee().equals(idFind)) {
                 System.out.println("\nThông tin nhân viên đang sửa là:\n" + employeeList.get(i));
 
-                employeeList.get(i).setName(InputUtil.getString("\nNhập tên cần sửa:"));
-                employeeList.get(i).setBirthday(InputUtil.getString("Nhập ngày sinh cần sửa:"));
-                employeeList.get(i).setGender(InputUtil.getString("Nhập giới tính cần sửa:"));
+                while (true) {
+                    try {
+                        employeeList.get(i).setName(InputNameRegex.getNameUtil(InputUtil.getString("\nNhập tên cần sửa:")));
+                        break;
+                    } catch (InputNameException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                employeeList.get(i).setBirthday(InputDayRegex.getBirthDay("Nhập ngày sinh cần sửa: "));
+
+                employeeList.get(i).setGender(InputPersonUtil.inputGenderUtil());
 
                 while (true) {
                     try {
-                        String cmnd = InputUtil.getString("Nhập CMND cần sửa:");
+                        String cmnd = InputIdCardRegex.getIdCardRegex(InputUtil.getString("Nhập CMND cần sửa:"));
                         for (int j = 0; j < employeeList.size(); j++) {
                             if (employeeList.get(j).getIdCard().equals(cmnd) && j != i) {
                                 throw new DuplicateIDException("Trùng CMND, mời nhập lại!");
@@ -142,48 +166,83 @@ public class EmployeeService implements IEmployeeService {
                         }
                         employeeList.get(i).setIdCard(cmnd);
                         break;
-                    } catch (DuplicateIDException e) {
+                    } catch (DuplicateIDException | InputIDCardException e) {
                         e.printStackTrace();
                     }
                 }
-                employeeList.get(i).setNumberPhone(InputUtil.getString("Nhập số điện thoại cần sửa:"));
-                employeeList.get(i).setEmail(InputUtil.getString("Nhập email cần sửa:"));
-                employeeList.get(i).setAddress(InputUtil.getString("Nhập địa chỉ cần sửa:"));
-                employeeList.get(i).setDegree(InputUtil.getString("Nhập bằng cấp cần sửa:"));
-                employeeList.get(i).setPosition(InputUtil.getString("Nhập chức vụ cần sửa:"));
+
+                while (true) {
+                    try {
+                        employeeList.get(i).setNumberPhone(InputPhoneNumberRegex.getNumberphoneRegex(InputUtil.getString("Nhập số điện thoại cần sửa:")));
+                        break;
+                    } catch (InputNumberPhoneException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                while (true) {
+                    try {
+                        employeeList.get(i).setEmail(InputEmailRegex.getEmail(InputUtil.getString("Nhập vào email mới: ")));
+                        break;
+                    } catch (InputEmailException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                while (true) {
+                    try {
+                        employeeList.get(i).setAddress(InputAddressRegex.getAddressRegex(InputUtil.getString("Nhập địa chỉ cần sửa:")));
+                        break;
+                    } catch (InputAddressException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                employeeList.get(i).setDegree(InputPersonUtil.inputDegreeUtil());
+                employeeList.get(i).setPosition(InputPersonUtil.inputPositionUtil());
                 employeeList.get(i).setSalary(InputUtil.getDouble("Nhập lương cần sửa:"));
 
+                IOEmployeeUtil.writeEmployee(IOEmployeeUtil.PATH_EMPLOYEE, employeeList);
+                System.out.println("Đã cập nhập thành công nhân viên có mã " + idFind);
+                flag = true;
+                employeeList.clear();
             }
         }
-        ReadWriteEmployeeUtil.writeEmployee(IOFileUtil.PATH_EMPLOYEE, employeeList);
-        employeeList.clear();
+        if (!flag) {
+            System.out.println("Không tìm thấy mã nhân viên: " + idFind);
+        }
     }
 
     @Override
     public void findID() {
-        employeeList = ReadWriteEmployeeUtil.readEmployee(IOFileUtil.PATH_EMPLOYEE);
+        employeeList = IOEmployeeUtil.readEmployee(IOEmployeeUtil.PATH_EMPLOYEE);
         String idFind = InputUtil.getString("Mời bạn nhập mã nhân viên cần tìm:");
-
+        idFind = idFind.toUpperCase();
+        boolean iFlag = false;
         for (Employee employee : employeeList) {
             if (employee.getIdEmployee().equals(idFind)) {
                 System.out.println("tìm thấy thông tin: " + idFind);
                 System.out.println(employee);
+                iFlag = true;
             }
         }
-        System.out.println("Không tìm thấy thông tin: " + idFind);
+        if (!iFlag) {
+            System.out.println("Không tìm thấy thông tin: " + idFind);
+        }
+
     }
 
     @Override
     public void findName() {
-        employeeList = ReadWriteEmployeeUtil.readEmployee(IOFileUtil.PATH_EMPLOYEE);
+        employeeList = IOEmployeeUtil.readEmployee(IOEmployeeUtil.PATH_EMPLOYEE);
 
         String findName = InputUtil.getString("Mời bạn nhập tên cần tìm:");
         List<Employee> employees = new ArrayList<>();
 
-        findName = findName.toLowerCase(Locale.ROOT);
+        findName = findName.toLowerCase();
         boolean isFlag = false;
         for (Employee employee : employeeList) {
-            if (employee.getName().toLowerCase(Locale.ROOT).contains(findName)) {
+            if (employee.getName().toLowerCase().contains(findName)) {
                 employees.add(employee);
                 isFlag = true;
             }
@@ -203,10 +262,9 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void displayAll() {
         System.out.println("Danh sách nhân viên hiện có:");
-        List<Employee> employeeList = ReadWriteEmployeeUtil.readEmployee(IOFileUtil.PATH_EMPLOYEE);
+        List<Employee> employeeList = IOEmployeeUtil.readEmployee(IOEmployeeUtil.PATH_EMPLOYEE);
         for (Employee item : employeeList) {
             System.out.println(item);
         }
-
     }
 }

@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Date;
-
 public class Customer extends Person {
     private String idCustomer;
     private String customerType;
@@ -41,7 +39,7 @@ public class Customer extends Person {
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,",getName(), getBirthday(), getGender(), getIdCard(),
+        return String.format("%s$$%s$$%s$$%s$$%s$$%s$$%s$$%s$$%s", getName(), getBirthday(), getGender(), getIdCard(),
                 getNumberPhone(), getEmail(), getAddress(), idCustomer, customerType);
     }
 }

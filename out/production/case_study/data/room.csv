@@ -1,0 +1,8 @@
+1:Mã dịch vụ -- 2: Tên dịch vụ -- 3:Diện tích sử dụng -- 4:Chi phí thuê -- 5:Số lượng người tối đa -- 6:Loại cho thuê -- 7:Dịch vụ free đi kèm --8:booking
+SVRO-0001$$Phòng đơn vip $$50,00$$800000,00$$2$$Ngày$$Giặt ủi - Vệ sinh$$1
+SVRO-1001$$Phòng đôi vip$$80,00$$950000,00$$4$$Ngày$$Giặt ủi - Vệ sinh$$2
+SVRO-2001$$Phòng đơn$$30,00$$350000,00$$2$$Ngày$$Nước suối - Vệ sinh$$1
+SVRO-3001$$Phòng đôi$$45,00$$500000,00$$4$$Ngày$$Nước suối - Vệ sinh$$4
+SVRO-002$$Phòng đơn$$30,00$$350000,00$$2$$Ngày$$Nước suối - Vệ sinh$$1
+SVRO-2345$$Room Vip$$67,00$$1200000,00$$3$$Theo ngày$$Nước Suối-Giặt Ủi$$0
+SVRO-8765$$Room Vip$$45,00$$120000,00$$3$$Theo tháng$$Nước Suối- Giặt Ủi$$0

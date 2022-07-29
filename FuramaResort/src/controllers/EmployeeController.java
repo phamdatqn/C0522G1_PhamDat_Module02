@@ -1,13 +1,12 @@
 package controllers;
 
-import exercise_haitutor.mvclist_version2.exception.InputNameException;
+import exception.InputEmailException;
+import exception.InputNameException;
 import services.IEmployeeService;
 import services.impl.EmployeeService;
-
-import java.util.Scanner;
+import utils.InputUtil;
 
 public class EmployeeController {
-    private Scanner scanner = new Scanner(System.in);
     private IEmployeeService iEmployeeService = new EmployeeService();
 
     public void menuEmployee() {
@@ -20,12 +19,12 @@ public class EmployeeController {
                     "5. Search ID employee\n" +
                     "6. Search name employee\n" +
                     "7. Return main menu.\n");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose = InputUtil.getInt("Please enter your selection:   ");
             switch (choose) {
                 case 1:
                     try {
                         iEmployeeService.add();
-                    } catch (InputNameException e) {
+                    } catch (exception.InputNameException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -33,7 +32,11 @@ public class EmployeeController {
                     iEmployeeService.remove();
                     break;
                 case 3:
-                    iEmployeeService.edit();
+                    try {
+                        iEmployeeService.edit();
+                    } catch (InputNameException | InputEmailException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case 4:
                     iEmployeeService.displayAll();

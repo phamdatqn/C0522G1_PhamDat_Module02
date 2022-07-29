@@ -2,18 +2,20 @@ package models;
 
 public class Villa extends Facility {
     private String roomStandard;
-    private double swimmingPoolArea;
     private int numberFloors;
+    private double swimmingPoolArea;
+
 
     public Villa() {
     }
 
-    public Villa(String nameFacility, int useArea, double rentalCosts, int maxPeople,
-                 String typeRental, String roomStandard, double swimmingPoolArea, int numberFloors) {
-        super(nameFacility, useArea, rentalCosts, maxPeople, typeRental);
+
+    public Villa(String idFacility, String nameFacility, double useArea, double rentalCosts,
+                 int maxPeople, String typeRental, String roomStandard, int numberFloors, double swimmingPoolArea) {
+        super(idFacility, nameFacility, useArea, rentalCosts, maxPeople, typeRental);
         this.roomStandard = roomStandard;
-        this.swimmingPoolArea = swimmingPoolArea;
         this.numberFloors = numberFloors;
+        this.swimmingPoolArea = swimmingPoolArea;
     }
 
     public String getRoomStandard() {
@@ -43,14 +45,15 @@ public class Villa extends Facility {
     @Override
     public String toString() {
         return "\n************ VILLA ************" +
+                super.toString()+
                 "\nTiêu chuẩn phòng: " + roomStandard +
-                "\nDiện tích hồ bơi : " + swimmingPoolArea +
-                "\nSố tầng: " + numberFloors + super.toString();
+                "\nSố tầng: " + numberFloors+ " tầng."+
+                "\nDiện tích hồ bơi : " + swimmingPoolArea +" mét vuông.";
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s,%d,%f,%d,%s,%s,%f,%d,",getNameFacility(), getUseArea(), getRentalCosts(), getMaxPeople(),
-       getTypeRental(), roomStandard, getSwimmingPoolArea(), getNumberFloors());
+        return String.format("%s$$%s$$%.2f$$%.2f$$%d$$%s$$%s$$%d$$%.2f",getIdFacility(),getNameFacility(), getUseArea(), getRentalCosts(), getMaxPeople(),
+       getTypeRental(), roomStandard, getNumberFloors(), getSwimmingPoolArea());
     }
 }
