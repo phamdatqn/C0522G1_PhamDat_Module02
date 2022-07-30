@@ -1,0 +1,7 @@
+1: Mã booking - 2: Ngày bắt đầu - 3: Ngày kết thúc - 4:Mã Khách hàng - 5: Tên dịch vụ - 6: Loại dịch vụ
+BK-0001$$29/07/2022$$29/08/2022&&CU-0001$$Villa đơn lập$$Trực tiếp
+BK-0002$$21/06/2022$$27/06/2022&&CU-0001$$Villa liền kề$$Online
+BK-0003$$19/05/2022$$23/06/2022&&CU-0001$$Homestay$$Trực tiếp
+BK-0004$$09/01/2022$$29/01/2022&&CU-0001$$Căn hộ$$Online
+BK-0005$$22/07/2022$$29/08/2022&&CU-0001$$Phòng đơn$$Online
+BK-0006$$26/04/2022$$29/05/2022&&CU-0001$$Phòng đôi$$Trực tiếp

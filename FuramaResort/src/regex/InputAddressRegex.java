@@ -21,18 +21,4 @@ public class InputAddressRegex {
         return string.toString().trim();
     }
 
-//    public static void main(String[] args){
-//        Scanner scanner =new Scanner(System.in);
-//
-//        while (true){
-//            try {
-//                System.out.println("Nhập tên tỉnh: ");
-//                String str2=scanner.nextLine();
-//                System.out.println(getAddressRegex(str2));
-//                break;
-//            }catch (InputAddressException e){
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 }

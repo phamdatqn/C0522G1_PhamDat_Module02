@@ -1,6 +1,6 @@
 package services;
 
-public interface IEmployeeService<E> extends IService {
+public interface IEmployeeService<E> extends IPersonService {
 
 }
 

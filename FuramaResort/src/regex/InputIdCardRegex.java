@@ -1,6 +1,6 @@
 package regex;
 
-import exception.InputIDCardException;
+import exception.person.InputIDCardException;
 
 public class InputIdCardRegex {
     private static final String CARD_REGEX = "^[\\d]{9}$";

@@ -1,19 +1,13 @@
 package services;
 
-import exception.InputEmailException;
-import exception.InputNameException;
-
-
 public interface IService<E> {
-    void add() throws InputNameException;
+    void add();
 
     void remove();
 
-    void edit() throws InputEmailException, InputNameException;
+    void edit();
 
-    void findID();
 
-    void findName();
 
     void displayAll();
 }
