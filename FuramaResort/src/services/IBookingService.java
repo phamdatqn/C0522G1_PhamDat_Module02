@@ -1,5 +1,5 @@
 package services;
 
-public interface IBookingService<E> extends IService {
+public interface IBookingService extends IService {
 
 }

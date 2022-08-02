@@ -1,8 +1,11 @@
 package controllers.facility_controller;
 
+import services.impl.impl_facility.BookingService;
 import utils.InputUtil;
 
 public class BookingController {
+    BookingService bookingService = new BookingService();
+
     public void menuBooking() {
         do {
             System.out.println("\n========== BOOKING MANAGEMENT ==========" +
@@ -16,10 +19,10 @@ public class BookingController {
             int choose = InputUtil.getInt("Please enter your selection: ");
             switch (choose) {
                 case 1:
-
+                    bookingService.add();
                     break;
                 case 2:
-
+                    bookingService.displayAll();
                     break;
                 case 3:
 

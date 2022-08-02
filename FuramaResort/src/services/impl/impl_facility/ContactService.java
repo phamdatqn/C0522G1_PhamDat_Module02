@@ -2,7 +2,7 @@ package services.impl.impl_facility;
 
 import services.IContactService;
 
-public class ContactService implements IContactService {
+public class ContactService implements IContactService{
 
     @Override
     public void add() {

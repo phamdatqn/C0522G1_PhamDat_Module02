@@ -1,11 +1,11 @@
 package services.impl.impl_facility;
 
 import exception.facility.InputFreeServiceException;
-import exception.facility.InputIDRoomException;
+import exception.facility.InputIdRoomException;
 import exception.facility.InputNameFacilityException;
 import models.model_facility.Room;
 import regex.facility_regex.InputFreeServiceRegex;
-import regex.facility_regex.InputIDRoomRegex;
+import regex.facility_regex.InputIdRoomRegex;
 import regex.facility_regex.InputNameFacilityRegex;
 import services.IRoomService;
 import utils.facility_untils.IORoomUtil;
@@ -60,14 +60,14 @@ public class RoomService implements IRoomService {
         String idRoom;
         while (true) {
             try {
-                idRoom = InputIDRoomRegex.getIdIDRoomRegex(InputUtil.getString("Nhập mã Room: "));
+                idRoom = InputIdRoomRegex.getIdIDRoomRegex(InputUtil.getString("Nhập mã Room: "));
                 for (Room item : roomIntegerMap.keySet()) {
                     if (item.getIdFacility().equals(idRoom)) {
-                        throw new InputIDRoomException("LỖI: Mã " + idRoom + " này đã tồn tại");
+                        throw new InputIdRoomException("LỖI: Mã " + idRoom + " này đã tồn tại");
                     }
                 }
                 break;
-            } catch (InputIDRoomException e) {
+            } catch (InputIdRoomException e) {
                 e.printStackTrace();
                 System.out.println(" ");
             }

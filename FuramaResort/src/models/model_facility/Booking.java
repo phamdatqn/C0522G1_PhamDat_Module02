@@ -1,6 +1,6 @@
 package models.model_facility;
 
-public class Booking {
+public class Booking implements Comparable<Booking> {
     private String idBooking;
     private String startDay;
     private String endDay;
@@ -11,8 +11,8 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String idBooking, String startDay, String endDay, String idCustomer,
-                   String nameService, String typeService) {
+    public Booking(String idBooking, String startDay, String endDay,
+                   String idCustomer, String nameService, String typeService) {
         this.idBooking = idBooking;
         this.startDay = startDay;
         this.endDay = endDay;
@@ -73,15 +73,24 @@ public class Booking {
     public String toString() {
         return "\n*************** BOOKING ***************" +
                 "\nMã booking: " + idBooking +
+                "\nMã dịch vụ: " + typeService+
+                "\nMã khách hàng: " + idCustomer +
                 "\nNgày bắt đầu: " + startDay +
                 "\nNgày kết thúc: " + endDay +
-                "\nMã khách hàng: " + idCustomer +
-                "\nTên dịch vụ: " + nameService +
-                "\nLoại dịch vụ: " + typeService;
+                "\nTên dịch vụ: " + nameService ;
+
     }
 
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s", idBooking, startDay, endDay, idCustomer,
+        return String.format("%s$$%s$$%s$$%s$$%s$$%s", idBooking, startDay, endDay, idCustomer,
                 nameService, typeService);
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        if (o == null) {
+            return -1;
+        }
+        return this.idBooking.compareTo(o.idBooking);
     }
 }

@@ -18,7 +18,7 @@ public class InputUtil {
                 tryD = Double.parseDouble(scanner.nextLine());
                 break;
             } catch (NumberFormatException e) {
-                System.err.println("Nhập sai, Không được nhập chữ!!!");
+                System.err.println("Nhập sai, Không được nhập chữ !!!");
                 System.out.println(e.getMessage());
             }
         }
@@ -34,7 +34,7 @@ public class InputUtil {
                 tryInt = Integer.parseInt(scanner.nextLine());
                 break;
             } catch (NumberFormatException e) {
-                System.err.println("Nhập sai, Không được nhập chữ");
+                System.err.println("Nhập sai, Không được nhập chữ !!!");
                 e.printStackTrace();
                 System.out.println(" ");
 

@@ -1,6 +1,6 @@
 package models.model_facility;
 
-public class Contract {
+public  class Contract {
     private String idContract;
     private String idBooking;
     private double moneyDeposit;
@@ -70,6 +70,6 @@ public class Contract {
     }
 
     public String getInfo() {
-        return String.format("%s,%s,%.2f,%.2f,%s", idContract, idBooking, moneyDeposit, payments, idCustomer);
+        return String.format("%s,%s,%1.2f,%1.2f,%s", idContract, idBooking, moneyDeposit, payments, idCustomer);
     }
 }

@@ -1,4 +1,4 @@
 package services;
 
-public interface IRoomService<E> extends IFacilityService {
+public interface IRoomService extends IFacilityService {
 }

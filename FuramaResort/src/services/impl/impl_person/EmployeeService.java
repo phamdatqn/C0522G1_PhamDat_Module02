@@ -11,10 +11,12 @@ import regex.facility_regex.InputEmailRegex;
 import regex.person_regex.InputIDEmployeeRegex;
 import services.IEmployeeService;
 import utils.person_untils.IOEmployeeUtil;
+import utils.person_untils.InputDayEmployeeUtil;
 import utils.person_untils.InputPersonUtil;
 import utils.InputUtil;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class EmployeeService implements IEmployeeService {
@@ -32,8 +34,15 @@ public class EmployeeService implements IEmployeeService {
             }
         }
 
-        String birthday = InputDayRegex.getBirthDay("Nhập ngày sinh nhân viên: ");
-
+        String birthday;
+        while (true) {
+            birthday = InputUtil.getString("Nhập ngày sinh nhân viên: ");
+            if(InputDayEmployeeUtil.isDate(birthday)){
+                break;
+            }else {
+                System.out.println("Tuổi của nhân viên phải lớn hơn 18 & nhỏ hơn 60!");
+            }
+        }
         String gender = InputPersonUtil.inputGenderUtil();
 
         String numberPhone;
@@ -43,6 +52,7 @@ public class EmployeeService implements IEmployeeService {
                 break;
             } catch (InputNumberPhoneException e) {
                 e.printStackTrace();
+                System.out.println(" ");
             }
         }
 

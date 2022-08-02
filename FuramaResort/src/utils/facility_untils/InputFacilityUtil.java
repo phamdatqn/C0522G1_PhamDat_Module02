@@ -1,7 +1,7 @@
 package utils.facility_untils;
 
 import exception.facility.*;
-import regex.facility_regex.InputIDVillaRegex;
+import regex.facility_regex.InputIdVillaRegex;
 import regex.facility_regex.InputNameFacilityRegex;
 import utils.InputUtil;
 
@@ -64,16 +64,9 @@ public class InputFacilityUtil {
 
     public static String getIdFacility(String target) {
         String idFacility;
-        while (true) {
-            try {
-                idFacility = InputUtil.getString(target);
-                idFacility = InputIDVillaRegex.getIdIDVillaRegex(idFacility);
-                break;
-            } catch (InputIDVillaException e) {
-                System.out.println("House có mã quy tắc là SVHO-4 mã số: ");
-            }
-        }
-        return idFacility;
+
+        idFacility = InputFacilityUtil.getIdFacility(InputUtil.getString("Nhập mã dịch vụ: "));
+                return idFacility;
     }
 
     public static String inputRoomStandardUtil() {
@@ -155,4 +148,53 @@ public class InputFacilityUtil {
         }
         return swimmingPoolArea;
     }
+
+    public static String inputNameService() {
+        final String[] DEGREE = {"", "Căn hộ", "Homestay", "Motel",
+                "Phòng đơn vip", "Phòng đơn", "Phòng đôi vip", "Phòng đôi",
+                "Villa đơn lập,Villa song lập", "Villa liền kề"};
+        int choice;
+        do {
+            System.out.println("Mời chọn tên dịch vụ: " +
+                    "\n***** HOUSE *****" +
+                    "\n1. Căn hộ" +
+                    "\n2. Homestay" +
+                    "\n3. Motel" +
+
+                    "\n***** ROOM *****" +
+                    "\n4. Phòng đơn vip" +
+                    "\n5. Phòng đơn" +
+                    "\n6. Phòng đôi vip" +
+                    "\n7. Phòng đôi" +
+
+                    "\n***** VILLA *****" +
+                    "\n8. Villa đơn lậpl" +
+                    "\n9. Villa song lập" +
+                    "\n10. Villa liền kề");
+            choice = InputUtil.getInt("Mời chọn: ");
+            if (choice < 1 || choice > 10) {
+                System.out.println("Nhập sai, mời chọn từ 1 -> 4");
+            }
+        } while (choice < 1 || choice > 10);
+        return DEGREE[choice];
+    }
+
+    public static String inputTypeService(){
+        final String[] DEGREE = {"", "House", "Room", "Villa"};
+        int choice;
+        do {
+            System.out.println("Mời chọn tên dịch vụ: " +
+                    "\n1. House" +
+                    "\n2. Room" +
+                    "\n3. Villa" );
+            choice = InputUtil.getInt("Mời chọn: ");
+            if (choice < 1 || choice > 3) {
+                System.out.println("Nhập sai, mời chọn từ 1 -> 4");
+            }
+        } while (choice < 1 || choice > 3);
+        return DEGREE[choice];
+
+    }
+
 }
+

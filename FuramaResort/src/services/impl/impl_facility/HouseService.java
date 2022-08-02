@@ -1,10 +1,10 @@
 package services.impl.impl_facility;
 
-import exception.facility.InputIDHouseException;
+import exception.facility.InputIdHouseException;
 import exception.facility.InputNameFacilityException;
 import exception.facility.InputNumberFloorsException;
 import models.model_facility.House;
-import regex.facility_regex.InputIDHouseRegex;
+import regex.facility_regex.InputIdHouseRegex;
 import regex.facility_regex.InputNameFacilityRegex;
 import services.IHouseService;
 import utils.facility_untils.IOHouseUtil;
@@ -44,14 +44,14 @@ public class HouseService implements IHouseService {
         String idHouse;
         while (true) {
             try {
-                idHouse = InputIDHouseRegex.getIdHouseRegex(InputUtil.getString("Nhập mã dịch vụ House: "));
+                idHouse = InputIdHouseRegex.getIdHouseRegex(InputUtil.getString("Nhập mã dịch vụ House: "));
                 for (House item : houseIntegerMap.keySet()) {
                     if (item.getIdFacility().equals(idHouse)) {
-                        throw new InputIDHouseException("LỖI: Mã " + idHouse + " này đã tồn tại");
+                        throw new InputIdHouseException("LỖI: Mã " + idHouse + " này đã tồn tại");
                     }
                 }
                 break;
-            } catch (InputIDHouseException e) {
+            } catch (InputIdHouseException e) {
                 e.printStackTrace();
             }
         }

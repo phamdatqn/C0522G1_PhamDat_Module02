@@ -1,6 +1,6 @@
 package services;
 
-public interface IFacilityService<E> extends IService {
+public interface IFacilityService extends IService {
     void findID();
 
     void findName();

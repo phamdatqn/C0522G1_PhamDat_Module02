@@ -1,4 +1,4 @@
 package services;
 
-public interface IVillaService<E> extends IFacilityService{
+public interface IVillaService extends IFacilityService{
 }

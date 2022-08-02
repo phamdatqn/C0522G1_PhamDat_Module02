@@ -1,9 +1,9 @@
 package services.impl.impl_facility;
 
-import exception.facility.InputIDVillaException;
+import exception.facility.InputIdVillaException;
 import exception.facility.InputNameFacilityException;
 import models.model_facility.Villa;
-import regex.facility_regex.InputIDVillaRegex;
+import regex.facility_regex.InputIdVillaRegex;
 import regex.facility_regex.InputNameFacilityRegex;
 import services.IVillaService;
 import utils.facility_untils.IOVillaUtil;
@@ -46,14 +46,14 @@ public class VillaService implements IVillaService {
         String idVilla;
         while (true) {
             try {
-                idVilla = InputIDVillaRegex.getIdIDVillaRegex(InputUtil.getString("Nhập mã Villa: "));
+                idVilla = InputIdVillaRegex.getIdIDVillaRegex(InputUtil.getString("Nhập mã Villa: "));
                 for (Villa item : villaIntegerMap.keySet()) {
                     if (item.getIdFacility().equals(idVilla)) {
-                        throw new InputIDVillaException("LỖI: mã " + idVilla + " này đã tồn tại");
+                        throw new InputIdVillaException("LỖI: mã " + idVilla + " này đã tồn tại");
                     }
                 }
                 break;
-            } catch (InputIDVillaException e) {
+            } catch (InputIdVillaException e) {
                 e.printStackTrace();
                 System.out.print("");
             }

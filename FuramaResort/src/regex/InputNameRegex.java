@@ -4,7 +4,8 @@ package regex;
 import exception.InputNameException;
 
 public class InputNameRegex {
-    private static final String NAME_REGEX = "([ ]*[^0-9 ]{2,6}[ ]+){1,4}[^0-9]{1,6}[ ]*";
+    private static final String NAME_REGEX = "([ ]*[^0-9 ]{2,6}[ ]+)+[^0-9]{2,6}[ ]*";
+
 
     public static String getNameUtil(String str) throws InputNameException {
         StringBuilder string = new StringBuilder();

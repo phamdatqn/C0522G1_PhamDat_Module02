@@ -1,6 +1,7 @@
 package services.impl.impl_person;
 
 import exception.*;
+import exception.facility.DuplicateIdCardException;
 import exception.person.InputEmailException;
 import exception.person.InputIDCardException;
 import exception.person.InputIDCustomerException;
@@ -11,6 +12,7 @@ import regex.facility_regex.InputEmailRegex;
 import regex.person_regex.InputIDCustomerRegex;
 import services.ICustomerService;
 import utils.person_untils.IOCustomerUtil;
+import utils.person_untils.InputDayEmployeeUtil;
 import utils.person_untils.InputPersonUtil;
 import utils.InputUtil;
 
@@ -20,7 +22,7 @@ import java.util.List;
 public class CustomerService implements ICustomerService {
     List<Customer> customerList = new LinkedList<>();
 
-    private Customer infoCustomer(String idCustomer) {
+    private Customer infoCustomer(String idCustomer,String idCard) {
 
         String name;
         while (true) {
@@ -29,22 +31,21 @@ public class CustomerService implements ICustomerService {
                 break;
             } catch (InputNameException e) {
                 e.printStackTrace();
+                System.out.println(" ");
             }
         }
 
-        String birthday = InputDayRegex.getBirthDay(InputDayRegex.getBirthDay("Nhập ngày sinh khách hàng: "));
+        String birthday;
+        while (true) {
+            birthday = InputUtil.getString("Nhập ngày sinh nhân viên: ");
+            if(InputDayEmployeeUtil.isDate(birthday)){
+                break;
+            }else {
+                System.out.println("Tuổi của nhân viên phải lớn hơn 18 & nhỏ hơn 100!");
+            }
+        }
 
         String gender = InputPersonUtil.inputGenderUtil();
-
-        String idCard;
-        while (true) {
-            try {
-                idCard = InputIdCardRegex.getIdCardRegex(InputUtil.getString("Nhập CMND khách hàng: "));
-                break;
-            } catch (InputIDCardException e) {
-                e.printStackTrace();
-            }
-        }
 
 
         String numberPhone;
@@ -54,6 +55,7 @@ public class CustomerService implements ICustomerService {
                 break;
             } catch (InputNumberPhoneException e) {
                 e.printStackTrace();
+                System.out.println(" ");
             }
         }
 
@@ -64,6 +66,7 @@ public class CustomerService implements ICustomerService {
                 break;
             } catch (InputEmailException e) {
                 e.printStackTrace();
+                System.out.println(" ");
 
             }
         }
@@ -75,6 +78,7 @@ public class CustomerService implements ICustomerService {
                 break;
             } catch (InputAddressException e) {
                 e.printStackTrace();
+                System.out.println(" ");
             }
         }
 
@@ -100,16 +104,34 @@ public class CustomerService implements ICustomerService {
                         throw new DuplicateIDException("Mã nhân viên đã tồn tại!");
                     }
                 }
-                customer = infoCustomer(idCustomer);
-                customerList.add(customer);
-                IOCustomerUtil.writeCustomer(IOCustomerUtil.PATH_CUSTOMER, customerList);
-                System.out.println("Thêm mới thành công!\n");
                 break;
             } catch (DuplicateIDException | InputIDCustomerException e) {
                 e.printStackTrace();
+                System.out.println(" ");
 
             }
         }
+        String idCard;
+
+        while (true) {
+            try {
+                idCard = InputIdCardRegex.getIdCardRegex(InputUtil.getString("Nhập CMND khách hàng: "));
+                for (Customer customer1: customerList){
+                    if (customer1.getIdCard().equals(idCard)){
+                        throw new DuplicateIdCardException("số CMND này đã tồn tại");
+                    }
+                }
+                break;
+            } catch (InputIDCardException |DuplicateIdCardException e) {
+                e.printStackTrace();
+                System.out.println(" ");
+            }
+        }
+
+        customer = infoCustomer(idCustomer,idCard);
+        customerList.add(customer);
+        IOCustomerUtil.writeCustomer(IOCustomerUtil.PATH_CUSTOMER, customerList);
+        System.out.println("Thêm mới thành công!\n");
     }
 
     @Override
